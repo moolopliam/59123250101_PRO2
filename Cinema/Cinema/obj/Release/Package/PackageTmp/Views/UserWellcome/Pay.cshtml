@@ -1,0 +1,101 @@
+﻿@{
+    if (Session["U_NAME"] == null)
+    {
+        <script>
+            window.location.href = '@Url.Action("Login", "User")';
+        </script>
+    }
+}
+
+@model Cinema.Models.Table_Order
+
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<br /><br />
+<h2 class="text-center">
+    <b>ช่องทางการชำระเงิน</b>
+</h2>
+<div class="row">
+    <div class=" col-md-1 col-lg-1 col-sm-1 ">
+
+    </div>
+    <div class="card col-md-3 col-lg-3 col-sm-3 ">
+        <br />
+        <img src="~/assets/IMG/KTP.png" class="img-thumbnail" />
+        <br />
+        <h12 class="text-center">ประเภท: ออมทรัพย์</h12>
+        <h12 class="text-center">เลขที่บัญชี</h12>
+        <h12 class="text-center">364-2-346XX-X</h12>
+        <br />
+    </div>
+    <div class=" col-md-1 col-lg-1 col-sm-1 ">
+
+    </div>
+    <div class="card col-md-3 col-lg-3 col-sm-3 ">
+        <br />
+        <img src="~/assets/IMG/kop.jpg" class="img-thumbnail" />
+        <br />
+        <h12 class="text-center">ประเภท: ออมทรัพย์</h12>
+        <h12 class="text-center">เลขที่บัญชี</h12>
+        <h12 class="text-center">333-2-152XX-X</h12>
+        <br />
+    </div>
+    <div class=" col-md-1 col-lg-1 col-sm-1 ">
+
+    </div>
+    <div class="card col-md-3 col-lg-3 col-sm-3 ">
+        <br />
+        <img src="~/assets/IMG/scbweb.jpg" class="img-thumbnail" />
+        <br />
+        <h12 class="text-center">ประเภท: ออมทรัพย์</h12>
+        <h12 class="text-center">เลขที่บัญชี</h12>
+        <h12 class="text-center">365-2-333XX-X</h12>
+        <br />
+    </div>
+    <div class=" col-md-1 col-lg-1 col-sm-1 ">
+
+    </div>
+</div>
+<hr />
+@using (Html.BeginForm("Pay", "UserWellcome", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.O_OrderID)
+        @Html.HiddenFor(model => model.O_Email)
+        @Html.HiddenFor(model => model.O_DateOder)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.O_Total, "จำนวนเงินที่ต้องชำระ", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.O_Total, new { htmlAttributes = new { @class = "form-control", @readonly = "true", Value = Convert.ToInt32(TempData["totalp"]) } })
+                @Html.ValidationMessageFor(model => model.O_Total, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UplPostedFile, "อัปโหลดรูปการชำระเงิน", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.UplPostedFile, new { htmlAttributes = new { @class = "form-control" }, Type = "file" })
+                @Html.ValidationMessageFor(model => model.UplPostedFile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ยืนยันการชำระ" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

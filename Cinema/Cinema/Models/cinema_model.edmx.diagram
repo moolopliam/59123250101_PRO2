@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6a8f27d97fb64b97a808a175f1cb2ec5" Name="Diagram1">
+        <EntityTypeShape EntityType="Cinema5927Model.Table_Chair" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_Cinema" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_DetailOder" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_Movie" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_Order" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_Screen" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_StatusBay" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_StatusChire" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_StatusMovie" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_Type" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.Table_User" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.View_SumOder" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.ViewMovies" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cinema5927Model.ViewOders" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_Chair_Table_Screen" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_Chair_Table_StatusChire" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_DetailOder_Table_Chair" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_Screen_Table_Cinema" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_DetailOder_Table_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_Movie_Table_StatusMovie" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_Screen_Table_Movie" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_Order_Table_StatusBay" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_Order_Table_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Cinema5927Model.FK_Table_User_Table_Type" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,49 @@
+/*
+ * jQuery Basic Table
+ * Author: Jerry Low
+ */
+
+table.bt thead,
+table.bt tbody th { display: none; }
+
+table.bt tfoot th,
+table.bt tfoot td,
+table.bt tbody td {
+    border: none;
+    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    /* IE 9 */
+    float: left\9;
+
+    vertical-align: top;
+    width: 100% \9;
+}
+
+table.bt tfoot th::before,
+table.bt tfoot td::before,
+table.bt tbody td::before {
+    -ms-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    content: attr(data-th) ": ";
+    display: inline-block;
+    flex-shrink: 0;
+    font-weight: bold;
+    width: 9.5em;
+}
+
+table.bt tfoot th.bt-hide,
+table.bt tfoot td.bt-hide,
+table.bt tbody td.bt-hide { display: none; }
+
+table.bt tfoot th .bt-content,
+table.bt tfoot td .bt-content,
+table.bt tbody td .bt-content { vertical-align: top; }
+
+.bt-wrapper.active {
+    -webkit-overflow-scrolling: touch;
+    max-height: 310px;
+    overflow: auto;
+}

@@ -1,0 +1,124 @@
+﻿@*@{
+    if (Convert.ToInt32(Session["typeid"]) == 111)
+    {
+        <script>
+            window.location.href = '@Url.Action("Login", "User")';
+        </script>
+    }
+    
+}*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")*@
+    <link href="https://fonts.googleapis.com/css?family=Mali&amp;subset=thai" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+    @*<link href="~/Content/bootstrap.minAD.css" rel="stylesheet" />*@
+    @*@Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <link href="~/assets/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/assets/shop-homepage.css" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Mali', cursive; }
+
+        .footer {
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+        }
+
+        .dd { color: white; }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Chayanan Cinema</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                @*<a class="nav-link" href="#">
+                                    Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Services</a>
+                            </li>*@
+
+                @if (Session["U_NAME"] != null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link">ชื่อผู้ใช้:@Session["U_NAME"].ToString()</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Logout", "User")">ออกจากระบบ</a>
+                    </li>
+                }
+                @if (Session["U_NAME"] == null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Login", "User")">เข้าสู่ระบบ</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-3">
+
+            <h1 class="my-4">เมนูหลัก</h1>
+            <div class="list-group">
+                <a href="@Url.Action("Index", "UserWellcome")" class="list-group-item">ภาพยนต์</a>
+                @{
+                    if (Session["U_EMAIL"] != null)
+                    {
+                        <a href="@Url.Action("OrderDetail", "UserWellcome")" class="list-group-item">ประวัติการซื้อ</a>
+                        <a href="@Url.Action("OrderDetail2", "UserWellcome")" class="list-group-item">การชำระเงิน</a>
+                        <a href="@Url.Action("EditProfileUser", "User")" class="list-group-item">แก้ไขข้อมูลส่วนตัว</a>
+                    }
+                }
+            </div>
+
+        </div>
+        <div class="col-lg-9">
+            @RenderBody()
+            <!-- /.row -->
+        </div>
+
+        @*<hr />
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                    </footer>*@
+    </div>
+</div>
+@*<script src="~/assets/jquery.min.js"></script>
+            <script src="~/assets/bootstrap.bundle.min.js"></script>*@
+
+@Scripts.Render("~/bundles/jquery")
+@*@Scripts.Render("~/bundles/bootstrap")*@
+@RenderSection("scripts", false)
+<link href="~/assets/datatable4/datatables.min.css" rel="stylesheet"/>
+<script src="~/assets/datatable4/datatables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+</body>
+</html>

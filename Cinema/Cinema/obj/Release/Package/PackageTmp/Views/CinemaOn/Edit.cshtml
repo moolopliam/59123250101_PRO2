@@ -1,0 +1,61 @@
+﻿@model Cinema.Models.Table_Cinema
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_User.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-7">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">แก้ไขข้อมูล</h3>
+            </div>
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm("Edit", "CinemaOn", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.C_CinemaID)
+                    @Html.HiddenFor(m => m.C_AmoutHire)
+
+
+                    <div class="form-horizontal">
+                        <h4>Table_Cinema</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.C_CinemaID)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.C_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.C_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.C_Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="บันทึก" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                <div>
+                    @Html.ActionLink("ย้อนกลับ", "Index", null, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

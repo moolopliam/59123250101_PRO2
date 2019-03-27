@@ -1,0 +1,42 @@
+﻿@model Cinema.Models.Table_Cinema
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_User.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-7">
+        <div class="panel panel-info ">
+            <div class="panel-heading">
+                <h3 class="panel-title">รายละเอียด</h3>
+            </div>
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.C_Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.C_Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.C_AmoutHire)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.C_AmoutHire)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.C_CinemaID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+</div>

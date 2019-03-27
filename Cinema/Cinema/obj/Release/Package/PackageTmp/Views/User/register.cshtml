@@ -1,0 +1,147 @@
+﻿@model Cinema.Models.Table_User
+
+@{
+    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<style>
+    .login-container {
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+
+    .login-form-1 {
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        padding: 5%;
+    }
+
+    .login-form-1 h3 {
+        color: #333;
+        text-align: center;
+    }
+
+    .login-form-2 {
+        background: #0062cc;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        padding: 5%;
+    }
+
+    .login-form-2 h3 {
+        color: #fff;
+        text-align: center;
+    }
+
+    .login-container form { padding: 10%; }
+
+    .btnSubmit {
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+        padding: 1.5%;
+        width: 50%;
+    }
+
+    .login-form-1 .btnSubmit {
+        background-color: #0062cc;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .login-form-2 .btnSubmit {
+        background-color: #fff;
+        color: #0062cc;
+        font-weight: 600;
+    }
+
+    .login-form-2 .ForgetPwd {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .login-form-1 .ForgetPwd {
+        color: #0062cc;
+        font-weight: 600;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-3 ">
+        </div>
+        <div class="col-md-6 login-form-2">
+            <h3>สมัครสมาชิก</h3>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new {@class = "text-danger "})
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.U_EmailID, new {@class = "control-label col-md-2 dd"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.U_EmailID, new {htmlAttributes = new {@class = "form-control dd"}})
+                            @Html.ValidationMessageFor(model => model.U_EmailID, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.U_Password, new {@class = "control-label col-md-2 dd"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.U_Password, new {htmlAttributes = new {@class = "form-control dd"}})
+                            @Html.ValidationMessageFor(model => model.U_Password, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.U_Name, new {@class = "control-label col-md-2 dd"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.U_Name, new {htmlAttributes = new {@class = "form-control dd"}})
+                            @Html.ValidationMessageFor(model => model.U_Name, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.U_LastName, new {@class = "control-label col-md-2 dd"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.U_LastName, new {htmlAttributes = new {@class = "form-control dd"}})
+                            @Html.ValidationMessageFor(model => model.U_LastName, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.U_CardID, new {@class = "control-label col-md-2 dd"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.U_CardID, new {htmlAttributes = new {@class = "form-control dd"}})
+                            @Html.ValidationMessageFor(model => model.U_CardID, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.U_Phone, new {@class = "control-label col-md-2 dd"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.U_Phone, new {htmlAttributes = new {@class = "form-control dd"}})
+                            @Html.ValidationMessageFor(model => model.U_Phone, "", new {@class = "text-danger"})
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="บันทึก" class="btn btn-success"/>
+                                <a href="@Url.Action("Login", "User")" class="btn btn-default" value="Login">ย้อนกลับ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

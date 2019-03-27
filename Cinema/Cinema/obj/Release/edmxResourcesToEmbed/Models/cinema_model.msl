@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Cinema5927ModelStoreContainer" CdmEntityContainer="Cinema5927Entities">
+    <EntitySetMapping Name="Table_Chair">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_Chair">
+        <MappingFragment StoreEntitySet="Table_Chair">
+          <ScalarProperty Name="C_ChairID" ColumnName="C_ChairID" />
+          <ScalarProperty Name="C_NameChair" ColumnName="C_NameChair" />
+          <ScalarProperty Name="C_SatatusID" ColumnName="C_SatatusID" />
+          <ScalarProperty Name="C_ScreenID" ColumnName="C_ScreenID" />
+          <ScalarProperty Name="C_Price" ColumnName="C_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Cinema">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_Cinema">
+        <MappingFragment StoreEntitySet="Table_Cinema">
+          <ScalarProperty Name="C_CinemaID" ColumnName="C_CinemaID" />
+          <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+          <ScalarProperty Name="C_AmoutHire" ColumnName="C_AmoutHire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_DetailOder">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_DetailOder">
+        <MappingFragment StoreEntitySet="Table_DetailOder">
+          <ScalarProperty Name="D_DetailOderID" ColumnName="D_DetailOderID" />
+          <ScalarProperty Name="D_Order" ColumnName="D_Order" />
+          <ScalarProperty Name="D_hairID" ColumnName="D_hairID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Movie">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_Movie">
+        <MappingFragment StoreEntitySet="Table_Movie">
+          <ScalarProperty Name="M_MovieID" ColumnName="M_MovieID" />
+          <ScalarProperty Name="M_NameMovie" ColumnName="M_NameMovie" />
+          <ScalarProperty Name="M_DateInMovie" ColumnName="M_DateInMovie" />
+          <ScalarProperty Name="M_DateOutMovie" ColumnName="M_DateOutMovie" />
+          <ScalarProperty Name="M_PicMovie" ColumnName="M_PicMovie" />
+          <ScalarProperty Name="M_MovieStatus" ColumnName="M_MovieStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Order">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_Order">
+        <MappingFragment StoreEntitySet="Table_Order">
+          <ScalarProperty Name="O_OrderID" ColumnName="O_OrderID" />
+          <ScalarProperty Name="O_Email" ColumnName="O_Email" />
+          <ScalarProperty Name="O_DateOder" ColumnName="O_DateOder" />
+          <ScalarProperty Name="O_SatatusBay" ColumnName="O_SatatusBay" />
+          <ScalarProperty Name="O_Total" ColumnName="O_Total" />
+          <ScalarProperty Name="O_IMGPAY" ColumnName="O_IMGPAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Screen">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_Screen">
+        <MappingFragment StoreEntitySet="Table_Screen">
+          <ScalarProperty Name="S_ScreenID" ColumnName="S_ScreenID" />
+          <ScalarProperty Name="S_MovieID" ColumnName="S_MovieID" />
+          <ScalarProperty Name="S_CinemaID" ColumnName="S_CinemaID" />
+          <ScalarProperty Name="S_DateSN" ColumnName="S_DateSN" />
+          <ScalarProperty Name="S_TimeSN" ColumnName="S_TimeSN" />
+          <ScalarProperty Name="S_StatusSN" ColumnName="S_StatusSN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_StatusBay">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_StatusBay">
+        <MappingFragment StoreEntitySet="Table_StatusBay">
+          <ScalarProperty Name="B_SatatusBayID" ColumnName="B_SatatusBayID" />
+          <ScalarProperty Name="B_Name" ColumnName="B_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_StatusChire">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_StatusChire">
+        <MappingFragment StoreEntitySet="Table_StatusChire">
+          <ScalarProperty Name="S_StatusChireID" ColumnName="S_StatusChireID" />
+          <ScalarProperty Name="S_NameSta" ColumnName="S_NameSta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_StatusMovie">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_StatusMovie">
+        <MappingFragment StoreEntitySet="Table_StatusMovie">
+          <ScalarProperty Name="S_StatusMovieID" ColumnName="S_StatusMovieID" />
+          <ScalarProperty Name="S_NameStatus" ColumnName="S_NameStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Type">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_Type">
+        <MappingFragment StoreEntitySet="Table_Type">
+          <ScalarProperty Name="T_TypeID" ColumnName="T_TypeID" />
+          <ScalarProperty Name="T_TypeName" ColumnName="T_TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_User">
+      <EntityTypeMapping TypeName="Cinema5927Model.Table_User">
+        <MappingFragment StoreEntitySet="Table_User">
+          <ScalarProperty Name="U_EmailID" ColumnName="U_EmailID" />
+          <ScalarProperty Name="U_Password" ColumnName="U_Password" />
+          <ScalarProperty Name="U_Name" ColumnName="U_Name" />
+          <ScalarProperty Name="U_LastName" ColumnName="U_LastName" />
+          <ScalarProperty Name="U_CardID" ColumnName="U_CardID" />
+          <ScalarProperty Name="U_Phone" ColumnName="U_Phone" />
+          <ScalarProperty Name="U_TypeID" ColumnName="U_TypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_SumOder">
+      <EntityTypeMapping TypeName="Cinema5927Model.View_SumOder">
+        <MappingFragment StoreEntitySet="View_SumOder">
+          <ScalarProperty Name="O_OrderID" ColumnName="O_OrderID" />
+          <ScalarProperty Name="B_SatatusBayID" ColumnName="B_SatatusBayID" />
+          <ScalarProperty Name="B_Name" ColumnName="B_Name" />
+          <ScalarProperty Name="U_EmailID" ColumnName="U_EmailID" />
+          <ScalarProperty Name="U_Name" ColumnName="U_Name" />
+          <ScalarProperty Name="U_LastName" ColumnName="U_LastName" />
+          <ScalarProperty Name="O_Email" ColumnName="O_Email" />
+          <ScalarProperty Name="O_IMGPAY" ColumnName="O_IMGPAY" />
+          <ScalarProperty Name="O_Total" ColumnName="O_Total" />
+          <ScalarProperty Name="O_SatatusBay" ColumnName="O_SatatusBay" />
+          <ScalarProperty Name="O_DateOder" ColumnName="O_DateOder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewMovies">
+      <EntityTypeMapping TypeName="Cinema5927Model.ViewMovies">
+        <MappingFragment StoreEntitySet="ViewMovies">
+          <ScalarProperty Name="S_StatusMovieID" ColumnName="S_StatusMovieID" />
+          <ScalarProperty Name="S_NameStatus" ColumnName="S_NameStatus" />
+          <ScalarProperty Name="M_MovieID" ColumnName="M_MovieID" />
+          <ScalarProperty Name="M_NameMovie" ColumnName="M_NameMovie" />
+          <ScalarProperty Name="M_DateInMovie" ColumnName="M_DateInMovie" />
+          <ScalarProperty Name="M_DateOutMovie" ColumnName="M_DateOutMovie" />
+          <ScalarProperty Name="M_PicMovie" ColumnName="M_PicMovie" />
+          <ScalarProperty Name="M_MovieStatus" ColumnName="M_MovieStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewOders">
+      <EntityTypeMapping TypeName="Cinema5927Model.ViewOders">
+        <MappingFragment StoreEntitySet="ViewOders">
+          <ScalarProperty Name="O_OrderID" ColumnName="O_OrderID" />
+          <ScalarProperty Name="D_DetailOderID" ColumnName="D_DetailOderID" />
+          <ScalarProperty Name="D_Order" ColumnName="D_Order" />
+          <ScalarProperty Name="D_hairID" ColumnName="D_hairID" />
+          <ScalarProperty Name="O_Email" ColumnName="O_Email" />
+          <ScalarProperty Name="U_EmailID" ColumnName="U_EmailID" />
+          <ScalarProperty Name="U_Password" ColumnName="U_Password" />
+          <ScalarProperty Name="U_Name" ColumnName="U_Name" />
+          <ScalarProperty Name="U_LastName" ColumnName="U_LastName" />
+          <ScalarProperty Name="U_Phone" ColumnName="U_Phone" />
+          <ScalarProperty Name="O_SatatusBay" ColumnName="O_SatatusBay" />
+          <ScalarProperty Name="O_DateOder" ColumnName="O_DateOder" />
+          <ScalarProperty Name="O_Total" ColumnName="O_Total" />
+          <ScalarProperty Name="O_IMGPAY" ColumnName="O_IMGPAY" />
+          <ScalarProperty Name="C_ChairID" ColumnName="C_ChairID" />
+          <ScalarProperty Name="C_NameChair" ColumnName="C_NameChair" />
+          <ScalarProperty Name="S_ScreenID" ColumnName="S_ScreenID" />
+          <ScalarProperty Name="S_MovieID" ColumnName="S_MovieID" />
+          <ScalarProperty Name="S_CinemaID" ColumnName="S_CinemaID" />
+          <ScalarProperty Name="S_DateSN" ColumnName="S_DateSN" />
+          <ScalarProperty Name="S_TimeSN" ColumnName="S_TimeSN" />
+          <ScalarProperty Name="C_CinemaID" ColumnName="C_CinemaID" />
+          <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+          <ScalarProperty Name="M_MovieID" ColumnName="M_MovieID" />
+          <ScalarProperty Name="M_NameMovie" ColumnName="M_NameMovie" />
+          <ScalarProperty Name="M_PicMovie" ColumnName="M_PicMovie" />
+          <ScalarProperty Name="B_SatatusBayID" ColumnName="B_SatatusBayID" />
+          <ScalarProperty Name="B_Name" ColumnName="B_Name" />
+          <ScalarProperty Name="C_ScreenID" ColumnName="C_ScreenID" />
+          <ScalarProperty Name="C_Price" ColumnName="C_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

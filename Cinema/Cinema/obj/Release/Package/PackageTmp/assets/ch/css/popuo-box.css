@@ -1,0 +1,386 @@
+/* Styles for dialog window */
+#small-dialog, #small-dialog1, #small-dialog2 {
+    background: transparent;
+    margin: 40px auto;
+    max-width: 650px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    text-align: center;
+}
+
+#small-dialog-it, #small-dialog-in, #small-dialog-fr, #small-dialog-sh, #small-dialog-sf, #small-dialog-su, #small-dialog-me, #small-dialog-ch, #small-dialog-pi, #small-dialog-am {
+    background: white;
+    margin: 40px auto;
+    max-width: 450px;
+    padding: 0px;
+    position: relative;
+    text-align: left;
+    text-align: center;
+}
+
+a.play-icon.popup-with-zoom-anim img:hover {
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    opacity: 0.5;
+    transition: 0.5s all;
+}
+
+.portfolio-items {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.portfolio-items img { width: 100%; }
+
+.portfolio-items h4 {
+    color: #a63d56;
+    font-size: 25px;
+    margin: 1em 0;
+}
+
+.portfolio-items p { text-align: justify; }
+
+/**
+
+/**
+ * Fade-zoom animation for first dialog
+ */
+
+/* start state */
+
+.my-mfp-zoom-in #small-dialog {
+    -moz-transform: scale(0.8);
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transform: scale(0.8);
+    -webkit-transition: all 0.2s ease-in-out;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.2s ease-in-out;
+}
+
+/* animate in */
+
+.my-mfp-zoom-in.mfp-ready #small-dialog {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* animate out */
+
+.my-mfp-zoom-in.mfp-removing #small-dialog {
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Dark overlay, start state */
+
+.my-mfp-zoom-in.mfp-bg {
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    -webkit-transition: opacity 0.3s ease-out;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+/* animate in */
+
+.my-mfp-zoom-in.mfp-ready.mfp-bg { opacity: 0.8; }
+
+/* animate out */
+
+.my-mfp-zoom-in.mfp-removing.mfp-bg { opacity: 0; }
+
+/**
+/* Magnific Popup CSS */
+
+.mfp-bg {
+    background: #0b0b0b;
+    filter: alpha(opacity=80);
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1042;
+}
+
+.mfp-wrap {
+    -webkit-backface-visibility: hidden;
+    height: 100%;
+    left: 0;
+    outline: none !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1043;
+}
+
+.mfp-container {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    left: 0;
+    padding: 0 8px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.mfp-container:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.mfp-align-top .mfp-container:before { display: none; }
+
+.mfp-content {
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    z-index: 1045;
+}
+
+.mfp-inline-holder .mfp-content,
+.mfp-ajax-holder .mfp-content {
+    cursor: auto;
+    width: 100%;
+}
+
+.mfp-ajax-cur { cursor: progress; }
+
+.mfp-zoom-out-cur,
+.mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+    cursor: -moz-zoom-out;
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+}
+
+.mfp-zoom {
+    cursor: pointer;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;
+}
+
+.mfp-auto-cursor .mfp-content { cursor: auto; }
+
+.mfp-close,
+.mfp-arrow,
+.mfp-preloader,
+.mfp-counter {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.mfp-loading.mfp-figure { display: none; }
+
+.mfp-hide { display: none !important; }
+
+.mfp-content iframe {
+    min-height: 380px;
+    width: 100%;
+}
+
+.mfp-preloader {
+    color: #cccccc;
+    left: 8px;
+    margin-top: -0.8em;
+    position: absolute;
+    right: 8px;
+    text-align: center;
+    top: 50%;
+    width: auto;
+    z-index: 1044;
+}
+
+.mfp-preloader a { color: #cccccc; }
+
+.mfp-preloader a:hover { color: white; }
+
+.mfp-s-ready .mfp-preloader { display: none; }
+
+.mfp-s-error .mfp-content { display: none; }
+
+button.mfp-close,
+button.mfp-arrow {
+    -webkit-appearance: none;
+    background: #FFF;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    overflow: visible;
+    padding: 0;
+    z-index: 1046;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.mfp-close {
+    color: white !important;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 45px;
+    font-style: normal;
+    height: 30px;
+    left: -30px;
+    line-height: 25px;
+    outline: none;
+    padding: 0 0 18px 10px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: -30px;
+    width: 23px;
+}
+
+.mfp-close:hover, .mfp-close:focus { opacity: 1; }
+
+.mfp-close-btn-in .mfp-close {
+    background: none;
+    color: #333333;
+}
+
+.mfp-image-holder .mfp-close,
+.mfp-iframe-holder .mfp-close {
+    color: white;
+    padding-right: 6px;
+    right: -6px;
+    text-align: right;
+    width: 100%;
+}
+
+.login h3, .signup h3 {
+    color: #a63d56;
+    margin: 1em 0;
+}
+
+.login input[type="text"], .login input[type="password"] {
+    a63d56;
+    margin: 3px 0;
+    outline: none !important;
+    padding: 5px;
+    :
+    1px
+    solid #
+    width: 90%;
+    x
+    border
+}
+
+.signup input[type="text"] {
+    background: #EBEBEB;
+    border: solid 1px #222;
+    margin: 10px 0;
+    outline: none;
+    padding: 5px;
+    width: 44.5%;
+}
+
+.signup input.email[type="text"], .signup input[type="password"] {
+    background: #EBEBEB;
+    border: solid 1px #222;
+    margin: 10px 0;
+    outline: none;
+    padding: 5px;
+    width: 90%;
+}
+
+.login input[type="submit"], .signup input[type="submit"] {
+    -webkit-appearance: none;
+    background: #347083;
+    border: 0px;
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 10px;
+    outline: none;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    width: 17%;
+}
+
+.login input[type="submit"]:hover, .signup input[type="submit"]:hover {
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    background: #163035;
+    transition: all 0.5s ease-in-out;
+}
+
+@media all and (max-width: 667px) {
+    .mfp-content iframe { min-height: 235px; }
+}
+
+@media all and (max-width: 640px) {
+    .mfp-close {
+        left: 0;
+        top: -38px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .comments-area textarea { height: 100px; }
+
+    .login input[type="submit"], .signup input[type="submit"] {
+        font-size: 14px;
+        width: 20%;
+    }
+
+    .mfp-close { left: 0; }
+}
+
+@media all and (max-width: 320px) {
+    .comments-area span.label, .comments-area span.text-field {
+        float: none;
+        width: 100%;
+    }
+
+    .comments-area span { padding-bottom: 3px; }
+
+    #small-dialog { padding: 15px; }
+
+    .comments-area input[type="text"], .comments-area textarea { width: 92%; }
+
+    .comments-area div { padding: 2px 0; }
+
+    .mfp-content iframe {
+        min-height: 150px;
+        width: 100%;
+    }
+
+    .login input[type="submit"], .signup input[type="submit"] {
+        font-size: 12px;
+        width: 29%;
+    }
+
+    .signup input[type="text"] { width: 90%; }
+
+    .mfp-close {
+        right: 2px;
+        top: -35px;
+    }
+}

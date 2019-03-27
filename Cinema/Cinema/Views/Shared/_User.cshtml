@@ -1,0 +1,123 @@
+﻿@{
+    if (Session["typeid"] == null)
+    {
+        <script>
+            window.location.href = '@Url.Action("Login", "User")';
+        </script>
+    }
+    else if (Convert.ToInt32(Session["typeid"]) == 1)
+    {
+        <script>
+            window.location.href = '@Url.Action("Index", "UserWellcome")';
+        </script>
+    }
+    else if (Convert.ToInt32(Session["typeid"]) == 111)
+    {
+        <script>
+            window.location.href = '@Url.Action("Index", "UserWellcome")';
+        </script>
+    }
+
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Mali&amp;subset=thai" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+    <link href="~/Content/bootstrapsa.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            font-family: 'Mali', cursive;
+        }
+
+        .dd {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Admin</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="@Url.Action("Index", "Screen")">รอบการฉาย <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Movie")">หนัง</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "CinemaOn")">โรงหนัง</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "OderAdmin")">รายการชำระเงิน</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index2", "OderAdmin")">ข้อมูลการขาย</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index3", "OderAdmin")">ผู้ที่กำลังซื้อ</a>
+                    </li>
+                    
+                    @*<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bar-chart"></i><p style="  font-size: 17px;color:black;">รายงาน</p></a>
+
+                        <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                            <ul class="dropdown-user">
+                                <li>@Html.ActionLink("รายงานรายชื่อภาพยนต์", "Index", "Reports")</li>
+                                <li>@Html.ActionLink("รายงานข้อมูลการขายสินค้าที่ชำระเงินแล้ว", "Index1", "Reports")</li>
+                                <li>@Html.ActionLink("รายชื่อลูกค้าที่ชำระเงิน ยังไม่ชำระเงิน และรอการยืนยันการชำระเงิน ", "Index2", "Reports")</li>
+                                
+                            </ul>
+                        </div>
+                    </li>*@
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">รายงาน <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("รายงานรายชื่อภาพยนต์", "Index", "Reports")</li>
+                            <li>@Html.ActionLink("รายงานข้อมูลการขายสินค้าที่ชำระเงินแล้ว", "Index1", "Reports")</li>
+                            <li>@Html.ActionLink("รายชื่อลูกค้าที่ชำระเงิน ยังไม่ชำระเงิน และรอการยืนยันการชำระเงิน ", "Index2", "Reports")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="@Url.Action("Logout", "User")">ออกจากระบบ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
+</body>
+</html>

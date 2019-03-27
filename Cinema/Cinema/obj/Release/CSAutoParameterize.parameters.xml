@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Cinema5927Entities-Web.config Connection String" description="Cinema5927Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.cinema_model.csdl|res://*/Models.cinema_model.ssdl|res://*/Models.cinema_model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-8O45V40\SQLEXPRESS;initial catalog=Cinema5927;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\สำรองข้อมูล\\สำรองโรงหนัง\\9-2-2562\\Cinema\\Cinema\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Cinema5927Entities']/@connectionString" />
+  </parameter>
+  <parameter name="Cinema5927ConnectionString-Web.config Connection String" description="Cinema5927ConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=DESKTOP-8O45V40\SQLEXPRESS;Initial Catalog=Cinema5927;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\สำรองข้อมูล\\สำรองโรงหนัง\\9-2-2562\\Cinema\\Cinema\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Cinema5927ConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="Cinema5927ConnectionString2-Web.config Connection String" description="Cinema5927ConnectionString2 Connection String used in web.config by the application to access the database." defaultValue="Data Source=DESKTOP-8O45V40\SQLEXPRESS;Initial Catalog=Cinema5927;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\สำรองข้อมูล\\สำรองโรงหนัง\\9-2-2562\\Cinema\\Cinema\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Cinema5927ConnectionString2']/@connectionString" />
+  </parameter>
+</parameters>

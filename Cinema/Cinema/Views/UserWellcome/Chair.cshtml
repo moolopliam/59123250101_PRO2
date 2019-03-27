@@ -1,0 +1,142 @@
+﻿@model IEnumerable<Cinema.Models.Table_Chair>
+
+@{
+    ViewBag.Title = "Chair";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<link href="~/assets/drs/multi-select.css" rel="stylesheet"/>
+<br/>
+<img src="~/assets/IMG/เก้าอี้2.jpg" class="img-fluid"/>
+<div class="form-group">
+    @Html.Label("จำนวนเงินทั้งหมด", new {@class = "control-label col-md-4"})
+    <div class="col-md-8">
+        <input id="demo" class="form-control" value="0" readonly="readonly"/>
+    </div>
+
+</div>
+@using (Html.BeginForm("AddChir", "UserWellcome", FormMethod.Post,
+    new {enctype = "multipart/form-data"}))
+{
+    <div class="row">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-5">
+            <h5>
+                <b>เก้าอี้คงเหลือ</b>
+            </h5>
+        </div>
+        <div class="col-md-5">
+            <h5>
+                <b>เก้าอี้ที่เลือก</b>
+            </h5>
+        </div>
+    </div>
+    <div class="form-horizontal">
+
+        <select id='pre-selected-options' multiple='multiple' name="myarray[]">
+
+            @foreach (var item in Model)
+            {
+                if (item.C_SatatusID == 2)
+                {
+                    <option value='@item.C_ChairID'>ตำแหนน่งที่นั่ง : @item.C_NameChair ราคา : @item.C_Price ฿ </option>
+                }
+            }
+
+        </select>
+        <br/>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ยืนยันการจอง" class="btn btn-success"/>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<!-- Bootstrap JavaScript -->
+
+<script src="~/assets/drs/jquery.multi-select.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*<script type="text/javascript">
+        // run pre selected options
+        $('#pre-selected-options').multiSelect();
+
+
+        function getSelectedOptions(sel) {
+            var opts = [],
+                opt;
+            var len = sel.options.length;
+            for (var i = 0; i < len; i++) {
+                opt = sel.options[i];
+                if (opt.selected) {
+                    opts.push(opt);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("searchPrice","UserWellcome")?id=" + opt.value,
+                        data: "{}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            //var total = document.getElementById("demo").value;
+                            var bla = $('#demo').val();
+                            var iNum = parseInt(bla);
+                            iNum += data;
+                            $('#demo').val(iNum);
+                            //document.getElementById("demo").value = bla;
+                        }
+                    });
+
+                }
+            }
+
+            return opts;
+        }
+
+    </script>*@
+<script type="text/javascript">
+    // run callbacks
+    $('#pre-selected-options').multiSelect({
+        afterSelect: function(values) {
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("searchPrice", "UserWellcome")?id=" + values,
+                data: "{}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data) {
+                    //var total = document.getElementById("demo").value;
+                    var bla = $('#demo').val();
+                    var iNum = parseInt(bla);
+                    iNum += data;
+                    $('#demo').val(iNum);
+                    //document.getElementById("demo").value = bla;
+                }
+            });
+        },
+        afterDeselect: function(values) {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("searchPrice", "UserWellcome")?id=" + values,
+                data: "{}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data) {
+                    //var total = document.getElementById("demo").value;
+                    var bla = $('#demo').val();
+                    var iNum = parseInt(bla);
+                    iNum -= data;
+                    $('#demo').val(iNum);
+                    //document.getElementById("demo").value = bla;
+                }
+            });
+        }
+    });
+</script>

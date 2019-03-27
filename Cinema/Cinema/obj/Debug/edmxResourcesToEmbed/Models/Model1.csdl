@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Cinema5927Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Cinema5927Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Table_Chair" EntityType="Cinema5927Model.Table_Chair" />
+    <EntitySet Name="Table_Cinema" EntityType="Cinema5927Model.Table_Cinema" />
+    <EntitySet Name="Table_DetailOder" EntityType="Cinema5927Model.Table_DetailOder" />
+    <EntitySet Name="Table_Movie" EntityType="Cinema5927Model.Table_Movie" />
+    <EntitySet Name="Table_Order" EntityType="Cinema5927Model.Table_Order" />
+    <EntitySet Name="Table_Screen" EntityType="Cinema5927Model.Table_Screen" />
+    <EntitySet Name="Table_StatusBay" EntityType="Cinema5927Model.Table_StatusBay" />
+    <EntitySet Name="Table_StatusChire" EntityType="Cinema5927Model.Table_StatusChire" />
+    <EntitySet Name="Table_StatusMovie" EntityType="Cinema5927Model.Table_StatusMovie" />
+    <EntitySet Name="Table_Type" EntityType="Cinema5927Model.Table_Type" />
+    <EntitySet Name="Table_User" EntityType="Cinema5927Model.Table_User" />
+    <EntitySet Name="ViewMovies" EntityType="Cinema5927Model.ViewMovies" />
+    <EntitySet Name="ViewOders" EntityType="Cinema5927Model.ViewOders" />
+    <AssociationSet Name="FK_Table_Chair_Table_Screen" Association="Cinema5927Model.FK_Table_Chair_Table_Screen">
+      <End Role="Table_Screen" EntitySet="Table_Screen" />
+      <End Role="Table_Chair" EntitySet="Table_Chair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Chair_Table_StatusChire" Association="Cinema5927Model.FK_Table_Chair_Table_StatusChire">
+      <End Role="Table_StatusChire" EntitySet="Table_StatusChire" />
+      <End Role="Table_Chair" EntitySet="Table_Chair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_DetailOder_Table_Chair" Association="Cinema5927Model.FK_Table_DetailOder_Table_Chair">
+      <End Role="Table_Chair" EntitySet="Table_Chair" />
+      <End Role="Table_DetailOder" EntitySet="Table_DetailOder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Screen_Table_Cinema" Association="Cinema5927Model.FK_Table_Screen_Table_Cinema">
+      <End Role="Table_Cinema" EntitySet="Table_Cinema" />
+      <End Role="Table_Screen" EntitySet="Table_Screen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_DetailOder_Table_Order" Association="Cinema5927Model.FK_Table_DetailOder_Table_Order">
+      <End Role="Table_Order" EntitySet="Table_Order" />
+      <End Role="Table_DetailOder" EntitySet="Table_DetailOder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Movie_Table_StatusMovie" Association="Cinema5927Model.FK_Table_Movie_Table_StatusMovie">
+      <End Role="Table_StatusMovie" EntitySet="Table_StatusMovie" />
+      <End Role="Table_Movie" EntitySet="Table_Movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Screen_Table_Movie" Association="Cinema5927Model.FK_Table_Screen_Table_Movie">
+      <End Role="Table_Movie" EntitySet="Table_Movie" />
+      <End Role="Table_Screen" EntitySet="Table_Screen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Order_Table_StatusBay" Association="Cinema5927Model.FK_Table_Order_Table_StatusBay">
+      <End Role="Table_StatusBay" EntitySet="Table_StatusBay" />
+      <End Role="Table_Order" EntitySet="Table_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Order_Table_User" Association="Cinema5927Model.FK_Table_Order_Table_User">
+      <End Role="Table_User" EntitySet="Table_User" />
+      <End Role="Table_Order" EntitySet="Table_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_User_Table_Type" Association="Cinema5927Model.FK_Table_User_Table_Type">
+      <End Role="Table_Type" EntitySet="Table_Type" />
+      <End Role="Table_User" EntitySet="Table_User" />
+    </AssociationSet>
+    <EntitySet Name="View_SumOder" EntityType="Cinema5927Model.View_SumOder" />
+  </EntityContainer>
+  <EntityType Name="Table_Chair">
+    <Key>
+      <PropertyRef Name="C_ChairID" />
+    </Key>
+    <Property Name="C_ChairID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_NameChair" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="C_SatatusID" Type="Int32" />
+    <Property Name="C_ScreenID" Type="Int32" />
+    <Property Name="C_Price" Type="Int32" />
+    <NavigationProperty Name="Table_Screen" Relationship="Cinema5927Model.FK_Table_Chair_Table_Screen" FromRole="Table_Chair" ToRole="Table_Screen" />
+    <NavigationProperty Name="Table_StatusChire" Relationship="Cinema5927Model.FK_Table_Chair_Table_StatusChire" FromRole="Table_Chair" ToRole="Table_StatusChire" />
+    <NavigationProperty Name="Table_DetailOder" Relationship="Cinema5927Model.FK_Table_DetailOder_Table_Chair" FromRole="Table_Chair" ToRole="Table_DetailOder" />
+  </EntityType>
+  <EntityType Name="Table_Cinema">
+    <Key>
+      <PropertyRef Name="C_CinemaID" />
+    </Key>
+    <Property Name="C_CinemaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="C_AmoutHire" Type="Int32" />
+    <NavigationProperty Name="Table_Screen" Relationship="Cinema5927Model.FK_Table_Screen_Table_Cinema" FromRole="Table_Cinema" ToRole="Table_Screen" />
+  </EntityType>
+  <EntityType Name="Table_DetailOder">
+    <Key>
+      <PropertyRef Name="D_DetailOderID" />
+    </Key>
+    <Property Name="D_DetailOderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="D_Order" Type="Int32" />
+    <Property Name="D_hairID" Type="Int32" />
+    <NavigationProperty Name="Table_Chair" Relationship="Cinema5927Model.FK_Table_DetailOder_Table_Chair" FromRole="Table_DetailOder" ToRole="Table_Chair" />
+    <NavigationProperty Name="Table_Order" Relationship="Cinema5927Model.FK_Table_DetailOder_Table_Order" FromRole="Table_DetailOder" ToRole="Table_Order" />
+  </EntityType>
+  <EntityType Name="Table_Movie">
+    <Key>
+      <PropertyRef Name="M_MovieID" />
+    </Key>
+    <Property Name="M_MovieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="M_NameMovie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="M_DateInMovie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="M_DateOutMovie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="M_PicMovie" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="M_MovieStatus" Type="Int32" />
+    <NavigationProperty Name="Table_StatusMovie" Relationship="Cinema5927Model.FK_Table_Movie_Table_StatusMovie" FromRole="Table_Movie" ToRole="Table_StatusMovie" />
+    <NavigationProperty Name="Table_Screen" Relationship="Cinema5927Model.FK_Table_Screen_Table_Movie" FromRole="Table_Movie" ToRole="Table_Screen" />
+  </EntityType>
+  <EntityType Name="Table_Order">
+    <Key>
+      <PropertyRef Name="O_OrderID" />
+    </Key>
+    <Property Name="O_OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="O_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="O_DateOder" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="O_SatatusBay" Type="Int32" />
+    <Property Name="O_Total" Type="Int32" />
+    <Property Name="O_IMGPAY" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Table_DetailOder" Relationship="Cinema5927Model.FK_Table_DetailOder_Table_Order" FromRole="Table_Order" ToRole="Table_DetailOder" />
+    <NavigationProperty Name="Table_StatusBay" Relationship="Cinema5927Model.FK_Table_Order_Table_StatusBay" FromRole="Table_Order" ToRole="Table_StatusBay" />
+    <NavigationProperty Name="Table_User" Relationship="Cinema5927Model.FK_Table_Order_Table_User" FromRole="Table_Order" ToRole="Table_User" />
+  </EntityType>
+  <EntityType Name="Table_Screen">
+    <Key>
+      <PropertyRef Name="S_ScreenID" />
+    </Key>
+    <Property Name="S_ScreenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="S_MovieID" Type="Int32" />
+    <Property Name="S_CinemaID" Type="Int32" />
+    <Property Name="S_DateSN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="S_TimeSN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="S_StatusSN" Type="Int32" />
+    <NavigationProperty Name="Table_Chair" Relationship="Cinema5927Model.FK_Table_Chair_Table_Screen" FromRole="Table_Screen" ToRole="Table_Chair" />
+    <NavigationProperty Name="Table_Cinema" Relationship="Cinema5927Model.FK_Table_Screen_Table_Cinema" FromRole="Table_Screen" ToRole="Table_Cinema" />
+    <NavigationProperty Name="Table_Movie" Relationship="Cinema5927Model.FK_Table_Screen_Table_Movie" FromRole="Table_Screen" ToRole="Table_Movie" />
+  </EntityType>
+  <EntityType Name="Table_StatusBay">
+    <Key>
+      <PropertyRef Name="B_SatatusBayID" />
+    </Key>
+    <Property Name="B_SatatusBayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="B_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_Order" Relationship="Cinema5927Model.FK_Table_Order_Table_StatusBay" FromRole="Table_StatusBay" ToRole="Table_Order" />
+  </EntityType>
+  <EntityType Name="Table_StatusChire">
+    <Key>
+      <PropertyRef Name="S_StatusChireID" />
+    </Key>
+    <Property Name="S_StatusChireID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="S_NameSta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_Chair" Relationship="Cinema5927Model.FK_Table_Chair_Table_StatusChire" FromRole="Table_StatusChire" ToRole="Table_Chair" />
+  </EntityType>
+  <EntityType Name="Table_StatusMovie">
+    <Key>
+      <PropertyRef Name="S_StatusMovieID" />
+    </Key>
+    <Property Name="S_StatusMovieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="S_NameStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_Movie" Relationship="Cinema5927Model.FK_Table_Movie_Table_StatusMovie" FromRole="Table_StatusMovie" ToRole="Table_Movie" />
+  </EntityType>
+  <EntityType Name="Table_Type">
+    <Key>
+      <PropertyRef Name="T_TypeID" />
+    </Key>
+    <Property Name="T_TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="T_TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_User" Relationship="Cinema5927Model.FK_Table_User_Table_Type" FromRole="Table_Type" ToRole="Table_User" />
+  </EntityType>
+  <EntityType Name="Table_User">
+    <Key>
+      <PropertyRef Name="U_EmailID" />
+    </Key>
+    <Property Name="U_EmailID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_CardID" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="U_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="U_TypeID" Type="Int32" />
+    <NavigationProperty Name="Table_Order" Relationship="Cinema5927Model.FK_Table_Order_Table_User" FromRole="Table_User" ToRole="Table_Order" />
+    <NavigationProperty Name="Table_Type" Relationship="Cinema5927Model.FK_Table_User_Table_Type" FromRole="Table_User" ToRole="Table_Type" />
+  </EntityType>
+  <EntityType Name="ViewMovies">
+    <Key>
+      <PropertyRef Name="S_StatusMovieID" />
+      <PropertyRef Name="M_MovieID" />
+    </Key>
+    <Property Name="S_StatusMovieID" Type="Int32" Nullable="false" />
+    <Property Name="S_NameStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="M_MovieID" Type="Int32" Nullable="false" />
+    <Property Name="M_NameMovie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="M_DateInMovie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="M_DateOutMovie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="M_PicMovie" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="M_MovieStatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ViewOders">
+    <Key>
+      <PropertyRef Name="O_OrderID" />
+      <PropertyRef Name="D_DetailOderID" />
+      <PropertyRef Name="U_EmailID" />
+      <PropertyRef Name="C_ChairID" />
+      <PropertyRef Name="S_ScreenID" />
+      <PropertyRef Name="C_CinemaID" />
+      <PropertyRef Name="M_MovieID" />
+      <PropertyRef Name="B_SatatusBayID" />
+    </Key>
+    <Property Name="O_OrderID" Type="Int32" Nullable="false" />
+    <Property Name="D_DetailOderID" Type="Int32" Nullable="false" />
+    <Property Name="D_Order" Type="Int32" />
+    <Property Name="D_hairID" Type="Int32" />
+    <Property Name="O_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_EmailID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="O_SatatusBay" Type="Int32" />
+    <Property Name="O_DateOder" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="O_Total" Type="Int32" />
+    <Property Name="O_IMGPAY" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="C_ChairID" Type="Int32" Nullable="false" />
+    <Property Name="C_NameChair" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="S_ScreenID" Type="Int32" Nullable="false" />
+    <Property Name="S_MovieID" Type="Int32" />
+    <Property Name="S_CinemaID" Type="Int32" />
+    <Property Name="S_DateSN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="S_TimeSN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="C_CinemaID" Type="Int32" Nullable="false" />
+    <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="M_MovieID" Type="Int32" Nullable="false" />
+    <Property Name="M_NameMovie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="M_PicMovie" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="B_SatatusBayID" Type="Int32" Nullable="false" />
+    <Property Name="B_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="C_ScreenID" Type="Int32" />
+    <Property Name="C_Price" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Table_Chair_Table_Screen">
+    <End Type="Cinema5927Model.Table_Screen" Role="Table_Screen" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_Chair" Role="Table_Chair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Screen">
+        <PropertyRef Name="S_ScreenID" />
+      </Principal>
+      <Dependent Role="Table_Chair">
+        <PropertyRef Name="C_ScreenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Chair_Table_StatusChire">
+    <End Type="Cinema5927Model.Table_StatusChire" Role="Table_StatusChire" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_Chair" Role="Table_Chair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_StatusChire">
+        <PropertyRef Name="S_StatusChireID" />
+      </Principal>
+      <Dependent Role="Table_Chair">
+        <PropertyRef Name="C_SatatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_DetailOder_Table_Chair">
+    <End Type="Cinema5927Model.Table_Chair" Role="Table_Chair" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_DetailOder" Role="Table_DetailOder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Chair">
+        <PropertyRef Name="C_ChairID" />
+      </Principal>
+      <Dependent Role="Table_DetailOder">
+        <PropertyRef Name="D_hairID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Screen_Table_Cinema">
+    <End Type="Cinema5927Model.Table_Cinema" Role="Table_Cinema" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_Screen" Role="Table_Screen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Cinema">
+        <PropertyRef Name="C_CinemaID" />
+      </Principal>
+      <Dependent Role="Table_Screen">
+        <PropertyRef Name="S_CinemaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_DetailOder_Table_Order">
+    <End Type="Cinema5927Model.Table_Order" Role="Table_Order" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_DetailOder" Role="Table_DetailOder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Order">
+        <PropertyRef Name="O_OrderID" />
+      </Principal>
+      <Dependent Role="Table_DetailOder">
+        <PropertyRef Name="D_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Movie_Table_StatusMovie">
+    <End Type="Cinema5927Model.Table_StatusMovie" Role="Table_StatusMovie" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_Movie" Role="Table_Movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_StatusMovie">
+        <PropertyRef Name="S_StatusMovieID" />
+      </Principal>
+      <Dependent Role="Table_Movie">
+        <PropertyRef Name="M_MovieStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Screen_Table_Movie">
+    <End Type="Cinema5927Model.Table_Movie" Role="Table_Movie" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_Screen" Role="Table_Screen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Movie">
+        <PropertyRef Name="M_MovieID" />
+      </Principal>
+      <Dependent Role="Table_Screen">
+        <PropertyRef Name="S_MovieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Order_Table_StatusBay">
+    <End Type="Cinema5927Model.Table_StatusBay" Role="Table_StatusBay" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_Order" Role="Table_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_StatusBay">
+        <PropertyRef Name="B_SatatusBayID" />
+      </Principal>
+      <Dependent Role="Table_Order">
+        <PropertyRef Name="O_SatatusBay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Order_Table_User">
+    <End Type="Cinema5927Model.Table_User" Role="Table_User" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_Order" Role="Table_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_User">
+        <PropertyRef Name="U_EmailID" />
+      </Principal>
+      <Dependent Role="Table_Order">
+        <PropertyRef Name="O_Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_User_Table_Type">
+    <End Type="Cinema5927Model.Table_Type" Role="Table_Type" Multiplicity="0..1" />
+    <End Type="Cinema5927Model.Table_User" Role="Table_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Type">
+        <PropertyRef Name="T_TypeID" />
+      </Principal>
+      <Dependent Role="Table_User">
+        <PropertyRef Name="U_TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="View_SumOder">
+    <Key>
+      <PropertyRef Name="O_OrderID" />
+      <PropertyRef Name="B_SatatusBayID" />
+      <PropertyRef Name="U_EmailID" />
+    </Key>
+    <Property Name="O_OrderID" Type="Int32" Nullable="false" />
+    <Property Name="B_SatatusBayID" Type="Int32" Nullable="false" />
+    <Property Name="B_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_EmailID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="O_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="O_IMGPAY" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="O_Total" Type="Int32" />
+    <Property Name="O_SatatusBay" Type="Int32" />
+    <Property Name="O_DateOder" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

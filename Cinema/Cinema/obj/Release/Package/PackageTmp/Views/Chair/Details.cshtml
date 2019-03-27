@@ -1,0 +1,51 @@
+﻿@model Cinema.Models.Table_Chair
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Table_Chair</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.C_NameChair)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_NameChair)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_Screen.S_DateSN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_Screen.S_DateSN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_StatusChire.S_NameSta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_StatusChire.S_NameSta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.C_ChairID}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

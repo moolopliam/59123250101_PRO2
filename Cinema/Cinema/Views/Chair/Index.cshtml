@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Cinema.Models.Table_Chair>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.C_NameChair)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.C_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table_Screen.S_DateSN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table_StatusChire.S_NameSta)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_NameChair)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Table_Screen.S_DateSN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Table_StatusChire.S_NameSta)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.C_ChairID}) |
+                @Html.ActionLink("Details", "Details", new {id = item.C_ChairID}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.C_ChairID})
+            </td>
+        </tr>
+    }
+
+</table>

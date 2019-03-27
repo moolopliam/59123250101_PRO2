@@ -1,0 +1,206 @@
+﻿body {
+    background: #111;
+    margin: 60px;
+}
+
+.theatre {
+    display: flex;
+    left: 50%;
+    position: absolute;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.cinema-seats {
+    display: flex;
+
+
+.seat {
+    cursor: pointer;
+
+
+&
+
+:hover:before {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+&
+
+.active { }
+
+&
+
+.active:before {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 7px;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+}
+
+}
+
+
+/
+
+/
+
+Left Seats
+.left {
+
+
+.cinema-row {
+    margin: 0 6px;
+    transform: skew(-15deg);
+}
+
+.seat {
+    background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041, #F3686A);
+    border-radius: 7px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    height: 50px;
+    margin-bottom: 10px;
+    margin-top: -32px;
+    transform: skew(20deg);
+    width: 35px;
+}
+
+.row-2 {
+    transform: skew(-13deg);
+
+
+.seat { transform: skew(18deg); }
+
+}
+
+.row-3 {
+    transform: skew(-12deg);
+
+
+.seat { transform: skew(16deg); }
+
+}
+
+.row-4 {
+    transform: skew(-11deg);
+
+
+.seat { transform: skew(15deg); }
+
+}
+
+.row-5 {
+    transform: skew(-10deg);
+
+
+.seat { transform: skew(12deg); }
+
+}
+
+.row-6 {
+    transform: skew(-9deg);
+
+
+.seat { transform: skew(10deg); }
+
+}
+
+.row-7 {
+    transform: skew(-7deg);
+
+
+.seat { transform: skew(8deg); }
+
+}
+
+}
+
+
+
+
+
+/
+
+/
+
+Left Seats
+.right {
+    margin-left: 70px;
+
+
+.cinema-row {
+    margin: 0 6px;
+    transform: skew(7deg);
+}
+
+.seat {
+    background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041, #F3686A);
+    border-radius: 7px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    height: 50px;
+    margin-bottom: 10px;
+    margin-top: -32px;
+    transform: skew(-8deg);
+    width: 35px;
+}
+
+.row-2 {
+    transform: skew(9deg);
+
+
+.seat { transform: skew(-10deg); }
+
+}
+
+.row-3 {
+    transform: skew(10deg);
+
+
+.seat { transform: skew(-12deg); }
+
+}
+
+.row-4 {
+    transform: skew(11deg);
+
+
+.seat { transform: skew(-15deg); }
+
+}
+
+.row-5 {
+    transform: skew(12deg);
+
+
+.seat { transform: skew(-16deg); }
+
+}
+
+.row-6 {
+    transform: skew(13deg);
+
+
+.seat { transform: skew(-18deg); }
+
+}
+
+.row-7 {
+    transform: skew(15deg);
+
+
+.seat { transform: skew(-20deg); }
+
+}
+
+}

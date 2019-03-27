@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Cinema5927Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Table_Chair">
+          <Key>
+            <PropertyRef Name="C_ChairID" />
+          </Key>
+          <Property Name="C_ChairID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_NameChair" Type="varchar" MaxLength="20" />
+          <Property Name="C_SatatusID" Type="int" />
+          <Property Name="C_ScreenID" Type="int" />
+          <Property Name="C_Price" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_Cinema">
+          <Key>
+            <PropertyRef Name="C_CinemaID" />
+          </Key>
+          <Property Name="C_CinemaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Name" Type="varchar" MaxLength="50" />
+          <Property Name="C_AmoutHire" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_DetailOder">
+          <Key>
+            <PropertyRef Name="D_DetailOderID" />
+          </Key>
+          <Property Name="D_DetailOderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="D_Order" Type="int" />
+          <Property Name="D_hairID" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_Movie">
+          <Key>
+            <PropertyRef Name="M_MovieID" />
+          </Key>
+          <Property Name="M_MovieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="M_NameMovie" Type="varchar" MaxLength="50" />
+          <Property Name="M_DateInMovie" Type="varchar" MaxLength="15" />
+          <Property Name="M_DateOutMovie" Type="varchar" MaxLength="15" />
+          <Property Name="M_PicMovie" Type="image" />
+          <Property Name="M_MovieStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_Order">
+          <Key>
+            <PropertyRef Name="O_OrderID" />
+          </Key>
+          <Property Name="O_OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="O_Email" Type="varchar" MaxLength="50" />
+          <Property Name="O_DateOder" Type="varchar" MaxLength="15" />
+          <Property Name="O_SatatusBay" Type="int" />
+          <Property Name="O_Total" Type="int" />
+          <Property Name="O_IMGPAY" Type="image" />
+        </EntityType>
+        <EntityType Name="Table_Screen">
+          <Key>
+            <PropertyRef Name="S_ScreenID" />
+          </Key>
+          <Property Name="S_ScreenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_MovieID" Type="int" />
+          <Property Name="S_CinemaID" Type="int" />
+          <Property Name="S_DateSN" Type="varchar" MaxLength="15" />
+          <Property Name="S_TimeSN" Type="varchar" MaxLength="15" />
+          <Property Name="S_StatusSN" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_StatusBay">
+          <Key>
+            <PropertyRef Name="B_SatatusBayID" />
+          </Key>
+          <Property Name="B_SatatusBayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="B_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_StatusChire">
+          <Key>
+            <PropertyRef Name="S_StatusChireID" />
+          </Key>
+          <Property Name="S_StatusChireID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_NameSta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_StatusMovie">
+          <Key>
+            <PropertyRef Name="S_StatusMovieID" />
+          </Key>
+          <Property Name="S_StatusMovieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_NameStatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Type">
+          <Key>
+            <PropertyRef Name="T_TypeID" />
+          </Key>
+          <Property Name="T_TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="T_TypeName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_User">
+          <Key>
+            <PropertyRef Name="U_EmailID" />
+          </Key>
+          <Property Name="U_EmailID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="U_Password" Type="varchar" MaxLength="30" />
+          <Property Name="U_Name" Type="varchar" MaxLength="30" />
+          <Property Name="U_LastName" Type="varchar" MaxLength="30" />
+          <Property Name="U_CardID" Type="varchar" MaxLength="13" />
+          <Property Name="U_Phone" Type="varchar" MaxLength="10" />
+          <Property Name="U_TypeID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Cinema5927.dbo.View_SumOder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_SumOder">
+          <Key>
+            <PropertyRef Name="O_OrderID" />
+            <PropertyRef Name="B_SatatusBayID" />
+            <PropertyRef Name="U_EmailID" />
+          </Key>
+          <Property Name="O_OrderID" Type="int" Nullable="false" />
+          <Property Name="B_SatatusBayID" Type="int" Nullable="false" />
+          <Property Name="B_Name" Type="varchar" MaxLength="50" />
+          <Property Name="U_EmailID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="U_Name" Type="varchar" MaxLength="30" />
+          <Property Name="U_LastName" Type="varchar" MaxLength="30" />
+          <Property Name="O_Email" Type="varchar" MaxLength="50" />
+          <Property Name="O_IMGPAY" Type="image" />
+          <Property Name="O_Total" Type="int" />
+          <Property Name="O_SatatusBay" Type="int" />
+          <Property Name="O_DateOder" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Cinema5927.dbo.ViewMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewMovies">
+          <Key>
+            <PropertyRef Name="S_StatusMovieID" />
+            <PropertyRef Name="M_MovieID" />
+          </Key>
+          <Property Name="S_StatusMovieID" Type="int" Nullable="false" />
+          <Property Name="S_NameStatus" Type="varchar" MaxLength="50" />
+          <Property Name="M_MovieID" Type="int" Nullable="false" />
+          <Property Name="M_NameMovie" Type="varchar" MaxLength="50" />
+          <Property Name="M_DateInMovie" Type="varchar" MaxLength="15" />
+          <Property Name="M_DateOutMovie" Type="varchar" MaxLength="15" />
+          <Property Name="M_PicMovie" Type="image" />
+          <Property Name="M_MovieStatus" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Cinema5927.dbo.ViewOders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewOders">
+          <Key>
+            <PropertyRef Name="O_OrderID" />
+            <PropertyRef Name="D_DetailOderID" />
+            <PropertyRef Name="U_EmailID" />
+            <PropertyRef Name="C_ChairID" />
+            <PropertyRef Name="S_ScreenID" />
+            <PropertyRef Name="C_CinemaID" />
+            <PropertyRef Name="M_MovieID" />
+            <PropertyRef Name="B_SatatusBayID" />
+          </Key>
+          <Property Name="O_OrderID" Type="int" Nullable="false" />
+          <Property Name="D_DetailOderID" Type="int" Nullable="false" />
+          <Property Name="D_Order" Type="int" />
+          <Property Name="D_hairID" Type="int" />
+          <Property Name="O_Email" Type="varchar" MaxLength="50" />
+          <Property Name="U_EmailID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="U_Password" Type="varchar" MaxLength="30" />
+          <Property Name="U_Name" Type="varchar" MaxLength="30" />
+          <Property Name="U_LastName" Type="varchar" MaxLength="30" />
+          <Property Name="U_Phone" Type="varchar" MaxLength="10" />
+          <Property Name="O_SatatusBay" Type="int" />
+          <Property Name="O_DateOder" Type="varchar" MaxLength="15" />
+          <Property Name="O_Total" Type="int" />
+          <Property Name="O_IMGPAY" Type="image" />
+          <Property Name="C_ChairID" Type="int" Nullable="false" />
+          <Property Name="C_NameChair" Type="varchar" MaxLength="20" />
+          <Property Name="S_ScreenID" Type="int" Nullable="false" />
+          <Property Name="S_MovieID" Type="int" />
+          <Property Name="S_CinemaID" Type="int" />
+          <Property Name="S_DateSN" Type="varchar" MaxLength="15" />
+          <Property Name="S_TimeSN" Type="varchar" MaxLength="15" />
+          <Property Name="C_CinemaID" Type="int" Nullable="false" />
+          <Property Name="C_Name" Type="varchar" MaxLength="50" />
+          <Property Name="M_MovieID" Type="int" Nullable="false" />
+          <Property Name="M_NameMovie" Type="varchar" MaxLength="50" />
+          <Property Name="M_PicMovie" Type="image" />
+          <Property Name="B_SatatusBayID" Type="int" Nullable="false" />
+          <Property Name="B_Name" Type="varchar" MaxLength="50" />
+          <Property Name="C_ScreenID" Type="int" />
+          <Property Name="C_Price" Type="int" />
+        </EntityType>
+        <Association Name="FK_Table_Chair_Table_Screen">
+          <End Role="Table_Screen" Type="Self.Table_Screen" Multiplicity="0..1" />
+          <End Role="Table_Chair" Type="Self.Table_Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Screen">
+              <PropertyRef Name="S_ScreenID" />
+            </Principal>
+            <Dependent Role="Table_Chair">
+              <PropertyRef Name="C_ScreenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Chair_Table_StatusChire">
+          <End Role="Table_StatusChire" Type="Self.Table_StatusChire" Multiplicity="0..1" />
+          <End Role="Table_Chair" Type="Self.Table_Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_StatusChire">
+              <PropertyRef Name="S_StatusChireID" />
+            </Principal>
+            <Dependent Role="Table_Chair">
+              <PropertyRef Name="C_SatatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetailOder_Table_Chair">
+          <End Role="Table_Chair" Type="Self.Table_Chair" Multiplicity="0..1" />
+          <End Role="Table_DetailOder" Type="Self.Table_DetailOder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Chair">
+              <PropertyRef Name="C_ChairID" />
+            </Principal>
+            <Dependent Role="Table_DetailOder">
+              <PropertyRef Name="D_hairID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetailOder_Table_Order">
+          <End Role="Table_Order" Type="Self.Table_Order" Multiplicity="0..1" />
+          <End Role="Table_DetailOder" Type="Self.Table_DetailOder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Order">
+              <PropertyRef Name="O_OrderID" />
+            </Principal>
+            <Dependent Role="Table_DetailOder">
+              <PropertyRef Name="D_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Movie_Table_StatusMovie">
+          <End Role="Table_StatusMovie" Type="Self.Table_StatusMovie" Multiplicity="0..1" />
+          <End Role="Table_Movie" Type="Self.Table_Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_StatusMovie">
+              <PropertyRef Name="S_StatusMovieID" />
+            </Principal>
+            <Dependent Role="Table_Movie">
+              <PropertyRef Name="M_MovieStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Order_Table_StatusBay">
+          <End Role="Table_StatusBay" Type="Self.Table_StatusBay" Multiplicity="0..1" />
+          <End Role="Table_Order" Type="Self.Table_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_StatusBay">
+              <PropertyRef Name="B_SatatusBayID" />
+            </Principal>
+            <Dependent Role="Table_Order">
+              <PropertyRef Name="O_SatatusBay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Order_Table_User">
+          <End Role="Table_User" Type="Self.Table_User" Multiplicity="0..1" />
+          <End Role="Table_Order" Type="Self.Table_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_User">
+              <PropertyRef Name="U_EmailID" />
+            </Principal>
+            <Dependent Role="Table_Order">
+              <PropertyRef Name="O_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Screen_Table_Cinema">
+          <End Role="Table_Cinema" Type="Self.Table_Cinema" Multiplicity="0..1" />
+          <End Role="Table_Screen" Type="Self.Table_Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Cinema">
+              <PropertyRef Name="C_CinemaID" />
+            </Principal>
+            <Dependent Role="Table_Screen">
+              <PropertyRef Name="S_CinemaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Screen_Table_Movie">
+          <End Role="Table_Movie" Type="Self.Table_Movie" Multiplicity="0..1" />
+          <End Role="Table_Screen" Type="Self.Table_Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Movie">
+              <PropertyRef Name="M_MovieID" />
+            </Principal>
+            <Dependent Role="Table_Screen">
+              <PropertyRef Name="S_MovieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_User_Table_Type">
+          <End Role="Table_Type" Type="Self.Table_Type" Multiplicity="0..1" />
+          <End Role="Table_User" Type="Self.Table_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Type">
+              <PropertyRef Name="T_TypeID" />
+            </Principal>
+            <Dependent Role="Table_User">
+              <PropertyRef Name="U_TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Cinema5927ModelStoreContainer">
+          <EntitySet Name="Table_Chair" EntityType="Self.Table_Chair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Cinema" EntityType="Self.Table_Cinema" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_DetailOder" EntityType="Self.Table_DetailOder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Movie" EntityType="Self.Table_Movie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Order" EntityType="Self.Table_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Screen" EntityType="Self.Table_Screen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_StatusBay" EntityType="Self.Table_StatusBay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_StatusChire" EntityType="Self.Table_StatusChire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_StatusMovie" EntityType="Self.Table_StatusMovie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Type" EntityType="Self.Table_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_User" EntityType="Self.Table_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_SumOder" EntityType="Self.View_SumOder" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_SumOder].[O_OrderID] AS [O_OrderID], 
+    [View_SumOder].[B_SatatusBayID] AS [B_SatatusBayID], 
+    [View_SumOder].[B_Name] AS [B_Name], 
+    [View_SumOder].[U_EmailID] AS [U_EmailID], 
+    [View_SumOder].[U_Name] AS [U_Name], 
+    [View_SumOder].[U_LastName] AS [U_LastName], 
+    [View_SumOder].[O_Email] AS [O_Email], 
+    [View_SumOder].[O_IMGPAY] AS [O_IMGPAY], 
+    [View_SumOder].[O_Total] AS [O_Total], 
+    [View_SumOder].[O_SatatusBay] AS [O_SatatusBay], 
+    [View_SumOder].[O_DateOder] AS [O_DateOder]
+    FROM [dbo].[View_SumOder] AS [View_SumOder]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewMovies" EntityType="Self.ViewMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewMovies].[S_StatusMovieID] AS [S_StatusMovieID], 
+    [ViewMovies].[S_NameStatus] AS [S_NameStatus], 
+    [ViewMovies].[M_MovieID] AS [M_MovieID], 
+    [ViewMovies].[M_NameMovie] AS [M_NameMovie], 
+    [ViewMovies].[M_DateInMovie] AS [M_DateInMovie], 
+    [ViewMovies].[M_DateOutMovie] AS [M_DateOutMovie], 
+    [ViewMovies].[M_PicMovie] AS [M_PicMovie], 
+    [ViewMovies].[M_MovieStatus] AS [M_MovieStatus]
+    FROM [dbo].[ViewMovies] AS [ViewMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewOders" EntityType="Self.ViewOders" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewOders].[O_OrderID] AS [O_OrderID], 
+    [ViewOders].[D_DetailOderID] AS [D_DetailOderID], 
+    [ViewOders].[D_Order] AS [D_Order], 
+    [ViewOders].[D_hairID] AS [D_hairID], 
+    [ViewOders].[O_Email] AS [O_Email], 
+    [ViewOders].[U_EmailID] AS [U_EmailID], 
+    [ViewOders].[U_Password] AS [U_Password], 
+    [ViewOders].[U_Name] AS [U_Name], 
+    [ViewOders].[U_LastName] AS [U_LastName], 
+    [ViewOders].[U_Phone] AS [U_Phone], 
+    [ViewOders].[O_SatatusBay] AS [O_SatatusBay], 
+    [ViewOders].[O_DateOder] AS [O_DateOder], 
+    [ViewOders].[O_Total] AS [O_Total], 
+    [ViewOders].[O_IMGPAY] AS [O_IMGPAY], 
+    [ViewOders].[C_ChairID] AS [C_ChairID], 
+    [ViewOders].[C_NameChair] AS [C_NameChair], 
+    [ViewOders].[S_ScreenID] AS [S_ScreenID], 
+    [ViewOders].[S_MovieID] AS [S_MovieID], 
+    [ViewOders].[S_CinemaID] AS [S_CinemaID], 
+    [ViewOders].[S_DateSN] AS [S_DateSN], 
+    [ViewOders].[S_TimeSN] AS [S_TimeSN], 
+    [ViewOders].[C_CinemaID] AS [C_CinemaID], 
+    [ViewOders].[C_Name] AS [C_Name], 
+    [ViewOders].[M_MovieID] AS [M_MovieID], 
+    [ViewOders].[M_NameMovie] AS [M_NameMovie], 
+    [ViewOders].[M_PicMovie] AS [M_PicMovie], 
+    [ViewOders].[B_SatatusBayID] AS [B_SatatusBayID], 
+    [ViewOders].[B_Name] AS [B_Name], 
+    [ViewOders].[C_ScreenID] AS [C_ScreenID], 
+    [ViewOders].[C_Price] AS [C_Price]
+    FROM [dbo].[ViewOders] AS [ViewOders]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Table_Chair_Table_Screen" Association="Self.FK_Table_Chair_Table_Screen">
+            <End Role="Table_Screen" EntitySet="Table_Screen" />
+            <End Role="Table_Chair" EntitySet="Table_Chair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Chair_Table_StatusChire" Association="Self.FK_Table_Chair_Table_StatusChire">
+            <End Role="Table_StatusChire" EntitySet="Table_StatusChire" />
+            <End Role="Table_Chair" EntitySet="Table_Chair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetailOder_Table_Chair" Association="Self.FK_Table_DetailOder_Table_Chair">
+            <End Role="Table_Chair" EntitySet="Table_Chair" />
+            <End Role="Table_DetailOder" EntitySet="Table_DetailOder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetailOder_Table_Order" Association="Self.FK_Table_DetailOder_Table_Order">
+            <End Role="Table_Order" EntitySet="Table_Order" />
+            <End Role="Table_DetailOder" EntitySet="Table_DetailOder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Movie_Table_StatusMovie" Association="Self.FK_Table_Movie_Table_StatusMovie">
+            <End Role="Table_StatusMovie" EntitySet="Table_StatusMovie" />
+            <End Role="Table_Movie" EntitySet="Table_Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Order_Table_StatusBay" Association="Self.FK_Table_Order_Table_StatusBay">
+            <End Role="Table_StatusBay" EntitySet="Table_StatusBay" />
+            <End Role="Table_Order" EntitySet="Table_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Order_Table_User" Association="Self.FK_Table_Order_Table_User">
+            <End Role="Table_User" EntitySet="Table_User" />
+            <End Role="Table_Order" EntitySet="Table_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Screen_Table_Cinema" Association="Self.FK_Table_Screen_Table_Cinema">
+            <End Role="Table_Cinema" EntitySet="Table_Cinema" />
+            <End Role="Table_Screen" EntitySet="Table_Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Screen_Table_Movie" Association="Self.FK_Table_Screen_Table_Movie">
+            <End Role="Table_Movie" EntitySet="Table_Movie" />
+            <End Role="Table_Screen" EntitySet="Table_Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_User_Table_Type" Association="Self.FK_Table_User_Table_Type">
+            <End Role="Table_Type" EntitySet="Table_Type" />
+            <End Role="Table_User" EntitySet="Table_User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Cinema5927Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Table_Chair">
+          <Key>
+            <PropertyRef Name="C_ChairID" />
+          </Key>
+          <Property Name="C_ChairID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_NameChair" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="C_SatatusID" Type="Int32" />
+          <Property Name="C_ScreenID" Type="Int32" />
+          <Property Name="C_Price" Type="Int32" />
+          <NavigationProperty Name="Table_Screen" Relationship="Self.FK_Table_Chair_Table_Screen" FromRole="Table_Chair" ToRole="Table_Screen" />
+          <NavigationProperty Name="Table_StatusChire" Relationship="Self.FK_Table_Chair_Table_StatusChire" FromRole="Table_Chair" ToRole="Table_StatusChire" />
+          <NavigationProperty Name="Table_DetailOder" Relationship="Self.FK_Table_DetailOder_Table_Chair" FromRole="Table_Chair" ToRole="Table_DetailOder" />
+        </EntityType>
+        <EntityType Name="Table_Cinema">
+          <Key>
+            <PropertyRef Name="C_CinemaID" />
+          </Key>
+          <Property Name="C_CinemaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_AmoutHire" Type="Int32" />
+          <NavigationProperty Name="Table_Screen" Relationship="Self.FK_Table_Screen_Table_Cinema" FromRole="Table_Cinema" ToRole="Table_Screen" />
+        </EntityType>
+        <EntityType Name="Table_DetailOder">
+          <Key>
+            <PropertyRef Name="D_DetailOderID" />
+          </Key>
+          <Property Name="D_DetailOderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="D_Order" Type="Int32" />
+          <Property Name="D_hairID" Type="Int32" />
+          <NavigationProperty Name="Table_Chair" Relationship="Self.FK_Table_DetailOder_Table_Chair" FromRole="Table_DetailOder" ToRole="Table_Chair" />
+          <NavigationProperty Name="Table_Order" Relationship="Self.FK_Table_DetailOder_Table_Order" FromRole="Table_DetailOder" ToRole="Table_Order" />
+        </EntityType>
+        <EntityType Name="Table_Movie">
+          <Key>
+            <PropertyRef Name="M_MovieID" />
+          </Key>
+          <Property Name="M_MovieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="M_NameMovie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M_DateInMovie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="M_DateOutMovie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="M_PicMovie" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="M_MovieStatus" Type="Int32" />
+          <NavigationProperty Name="Table_StatusMovie" Relationship="Self.FK_Table_Movie_Table_StatusMovie" FromRole="Table_Movie" ToRole="Table_StatusMovie" />
+          <NavigationProperty Name="Table_Screen" Relationship="Self.FK_Table_Screen_Table_Movie" FromRole="Table_Movie" ToRole="Table_Screen" />
+        </EntityType>
+        <EntityType Name="Table_Order">
+          <Key>
+            <PropertyRef Name="O_OrderID" />
+          </Key>
+          <Property Name="O_OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="O_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="O_DateOder" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="O_SatatusBay" Type="Int32" />
+          <Property Name="O_Total" Type="Int32" />
+          <Property Name="O_IMGPAY" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Table_DetailOder" Relationship="Self.FK_Table_DetailOder_Table_Order" FromRole="Table_Order" ToRole="Table_DetailOder" />
+          <NavigationProperty Name="Table_StatusBay" Relationship="Self.FK_Table_Order_Table_StatusBay" FromRole="Table_Order" ToRole="Table_StatusBay" />
+          <NavigationProperty Name="Table_User" Relationship="Self.FK_Table_Order_Table_User" FromRole="Table_Order" ToRole="Table_User" />
+        </EntityType>
+        <EntityType Name="Table_Screen">
+          <Key>
+            <PropertyRef Name="S_ScreenID" />
+          </Key>
+          <Property Name="S_ScreenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_MovieID" Type="Int32" />
+          <Property Name="S_CinemaID" Type="Int32" />
+          <Property Name="S_DateSN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="S_TimeSN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="S_StatusSN" Type="Int32" />
+          <NavigationProperty Name="Table_Chair" Relationship="Self.FK_Table_Chair_Table_Screen" FromRole="Table_Screen" ToRole="Table_Chair" />
+          <NavigationProperty Name="Table_Cinema" Relationship="Self.FK_Table_Screen_Table_Cinema" FromRole="Table_Screen" ToRole="Table_Cinema" />
+          <NavigationProperty Name="Table_Movie" Relationship="Self.FK_Table_Screen_Table_Movie" FromRole="Table_Screen" ToRole="Table_Movie" />
+        </EntityType>
+        <EntityType Name="Table_StatusBay">
+          <Key>
+            <PropertyRef Name="B_SatatusBayID" />
+          </Key>
+          <Property Name="B_SatatusBayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="B_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Order" Relationship="Self.FK_Table_Order_Table_StatusBay" FromRole="Table_StatusBay" ToRole="Table_Order" />
+        </EntityType>
+        <EntityType Name="Table_StatusChire">
+          <Key>
+            <PropertyRef Name="S_StatusChireID" />
+          </Key>
+          <Property Name="S_StatusChireID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_NameSta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Chair" Relationship="Self.FK_Table_Chair_Table_StatusChire" FromRole="Table_StatusChire" ToRole="Table_Chair" />
+        </EntityType>
+        <EntityType Name="Table_StatusMovie">
+          <Key>
+            <PropertyRef Name="S_StatusMovieID" />
+          </Key>
+          <Property Name="S_StatusMovieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_NameStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Movie" Relationship="Self.FK_Table_Movie_Table_StatusMovie" FromRole="Table_StatusMovie" ToRole="Table_Movie" />
+        </EntityType>
+        <EntityType Name="Table_Type">
+          <Key>
+            <PropertyRef Name="T_TypeID" />
+          </Key>
+          <Property Name="T_TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="T_TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_User" Relationship="Self.FK_Table_User_Table_Type" FromRole="Table_Type" ToRole="Table_User" />
+        </EntityType>
+        <EntityType Name="Table_User">
+          <Key>
+            <PropertyRef Name="U_EmailID" />
+          </Key>
+          <Property Name="U_EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="U_Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="U_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="U_LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="U_CardID" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="U_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="U_TypeID" Type="Int32" />
+          <NavigationProperty Name="Table_Order" Relationship="Self.FK_Table_Order_Table_User" FromRole="Table_User" ToRole="Table_Order" />
+          <NavigationProperty Name="Table_Type" Relationship="Self.FK_Table_User_Table_Type" FromRole="Table_User" ToRole="Table_Type" />
+        </EntityType>
+        <EntityType Name="View_SumOder">
+          <Key>
+            <PropertyRef Name="O_OrderID" />
+            <PropertyRef Name="B_SatatusBayID" />
+            <PropertyRef Name="U_EmailID" />
+          </Key>
+          <Property Name="O_OrderID" Type="Int32" Nullable="false" />
+          <Property Name="B_SatatusBayID" Type="Int32" Nullable="false" />
+          <Property Name="B_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="U_EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="U_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="U_LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="O_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="O_IMGPAY" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="O_Total" Type="Int32" />
+          <Property Name="O_SatatusBay" Type="Int32" />
+          <Property Name="O_DateOder" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ViewMovies">
+          <Key>
+            <PropertyRef Name="S_StatusMovieID" />
+            <PropertyRef Name="M_MovieID" />
+          </Key>
+          <Property Name="S_StatusMovieID" Type="Int32" Nullable="false" />
+          <Property Name="S_NameStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M_MovieID" Type="Int32" Nullable="false" />
+          <Property Name="M_NameMovie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M_DateInMovie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="M_DateOutMovie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="M_PicMovie" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="M_MovieStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ViewOders">
+          <Key>
+            <PropertyRef Name="O_OrderID" />
+            <PropertyRef Name="D_DetailOderID" />
+            <PropertyRef Name="U_EmailID" />
+            <PropertyRef Name="C_ChairID" />
+            <PropertyRef Name="S_ScreenID" />
+            <PropertyRef Name="C_CinemaID" />
+            <PropertyRef Name="M_MovieID" />
+            <PropertyRef Name="B_SatatusBayID" />
+          </Key>
+          <Property Name="O_OrderID" Type="Int32" Nullable="false" />
+          <Property Name="D_DetailOderID" Type="Int32" Nullable="false" />
+          <Property Name="D_Order" Type="Int32" />
+          <Property Name="D_hairID" Type="Int32" />
+          <Property Name="O_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="U_EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="U_Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="U_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="U_LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="U_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="O_SatatusBay" Type="Int32" />
+          <Property Name="O_DateOder" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="O_Total" Type="Int32" />
+          <Property Name="O_IMGPAY" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="C_ChairID" Type="Int32" Nullable="false" />
+          <Property Name="C_NameChair" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_ScreenID" Type="Int32" Nullable="false" />
+          <Property Name="S_MovieID" Type="Int32" />
+          <Property Name="S_CinemaID" Type="Int32" />
+          <Property Name="S_DateSN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="S_TimeSN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="C_CinemaID" Type="Int32" Nullable="false" />
+          <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M_MovieID" Type="Int32" Nullable="false" />
+          <Property Name="M_NameMovie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M_PicMovie" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="B_SatatusBayID" Type="Int32" Nullable="false" />
+          <Property Name="B_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_ScreenID" Type="Int32" />
+          <Property Name="C_Price" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Table_Chair_Table_Screen">
+          <End Role="Table_Screen" Type="Self.Table_Screen" Multiplicity="0..1" />
+          <End Role="Table_Chair" Type="Self.Table_Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Screen">
+              <PropertyRef Name="S_ScreenID" />
+            </Principal>
+            <Dependent Role="Table_Chair">
+              <PropertyRef Name="C_ScreenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Chair_Table_StatusChire">
+          <End Role="Table_StatusChire" Type="Self.Table_StatusChire" Multiplicity="0..1" />
+          <End Role="Table_Chair" Type="Self.Table_Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_StatusChire">
+              <PropertyRef Name="S_StatusChireID" />
+            </Principal>
+            <Dependent Role="Table_Chair">
+              <PropertyRef Name="C_SatatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetailOder_Table_Chair">
+          <End Role="Table_Chair" Type="Self.Table_Chair" Multiplicity="0..1" />
+          <End Role="Table_DetailOder" Type="Self.Table_DetailOder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Chair">
+              <PropertyRef Name="C_ChairID" />
+            </Principal>
+            <Dependent Role="Table_DetailOder">
+              <PropertyRef Name="D_hairID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Screen_Table_Cinema">
+          <End Role="Table_Cinema" Type="Self.Table_Cinema" Multiplicity="0..1" />
+          <End Role="Table_Screen" Type="Self.Table_Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Cinema">
+              <PropertyRef Name="C_CinemaID" />
+            </Principal>
+            <Dependent Role="Table_Screen">
+              <PropertyRef Name="S_CinemaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetailOder_Table_Order">
+          <End Role="Table_Order" Type="Self.Table_Order" Multiplicity="0..1" />
+          <End Role="Table_DetailOder" Type="Self.Table_DetailOder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Order">
+              <PropertyRef Name="O_OrderID" />
+            </Principal>
+            <Dependent Role="Table_DetailOder">
+              <PropertyRef Name="D_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Movie_Table_StatusMovie">
+          <End Role="Table_StatusMovie" Type="Self.Table_StatusMovie" Multiplicity="0..1" />
+          <End Role="Table_Movie" Type="Self.Table_Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_StatusMovie">
+              <PropertyRef Name="S_StatusMovieID" />
+            </Principal>
+            <Dependent Role="Table_Movie">
+              <PropertyRef Name="M_MovieStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Screen_Table_Movie">
+          <End Role="Table_Movie" Type="Self.Table_Movie" Multiplicity="0..1" />
+          <End Role="Table_Screen" Type="Self.Table_Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Movie">
+              <PropertyRef Name="M_MovieID" />
+            </Principal>
+            <Dependent Role="Table_Screen">
+              <PropertyRef Name="S_MovieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Order_Table_StatusBay">
+          <End Role="Table_StatusBay" Type="Self.Table_StatusBay" Multiplicity="0..1" />
+          <End Role="Table_Order" Type="Self.Table_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_StatusBay">
+              <PropertyRef Name="B_SatatusBayID" />
+            </Principal>
+            <Dependent Role="Table_Order">
+              <PropertyRef Name="O_SatatusBay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Order_Table_User">
+          <End Role="Table_User" Type="Self.Table_User" Multiplicity="0..1" />
+          <End Role="Table_Order" Type="Self.Table_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_User">
+              <PropertyRef Name="U_EmailID" />
+            </Principal>
+            <Dependent Role="Table_Order">
+              <PropertyRef Name="O_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_User_Table_Type">
+          <End Role="Table_Type" Type="Self.Table_Type" Multiplicity="0..1" />
+          <End Role="Table_User" Type="Self.Table_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Type">
+              <PropertyRef Name="T_TypeID" />
+            </Principal>
+            <Dependent Role="Table_User">
+              <PropertyRef Name="U_TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Cinema5927Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Table_Chair" EntityType="Self.Table_Chair" />
+          <EntitySet Name="Table_Cinema" EntityType="Self.Table_Cinema" />
+          <EntitySet Name="Table_DetailOder" EntityType="Self.Table_DetailOder" />
+          <EntitySet Name="Table_Movie" EntityType="Self.Table_Movie" />
+          <EntitySet Name="Table_Order" EntityType="Self.Table_Order" />
+          <EntitySet Name="Table_Screen" EntityType="Self.Table_Screen" />
+          <EntitySet Name="Table_StatusBay" EntityType="Self.Table_StatusBay" />
+          <EntitySet Name="Table_StatusChire" EntityType="Self.Table_StatusChire" />
+          <EntitySet Name="Table_StatusMovie" EntityType="Self.Table_StatusMovie" />
+          <EntitySet Name="Table_Type" EntityType="Self.Table_Type" />
+          <EntitySet Name="Table_User" EntityType="Self.Table_User" />
+          <EntitySet Name="View_SumOder" EntityType="Self.View_SumOder" />
+          <EntitySet Name="ViewMovies" EntityType="Self.ViewMovies" />
+          <EntitySet Name="ViewOders" EntityType="Self.ViewOders" />
+          <AssociationSet Name="FK_Table_Chair_Table_Screen" Association="Self.FK_Table_Chair_Table_Screen">
+            <End Role="Table_Screen" EntitySet="Table_Screen" />
+            <End Role="Table_Chair" EntitySet="Table_Chair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Chair_Table_StatusChire" Association="Self.FK_Table_Chair_Table_StatusChire">
+            <End Role="Table_StatusChire" EntitySet="Table_StatusChire" />
+            <End Role="Table_Chair" EntitySet="Table_Chair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetailOder_Table_Chair" Association="Self.FK_Table_DetailOder_Table_Chair">
+            <End Role="Table_Chair" EntitySet="Table_Chair" />
+            <End Role="Table_DetailOder" EntitySet="Table_DetailOder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Screen_Table_Cinema" Association="Self.FK_Table_Screen_Table_Cinema">
+            <End Role="Table_Cinema" EntitySet="Table_Cinema" />
+            <End Role="Table_Screen" EntitySet="Table_Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetailOder_Table_Order" Association="Self.FK_Table_DetailOder_Table_Order">
+            <End Role="Table_Order" EntitySet="Table_Order" />
+            <End Role="Table_DetailOder" EntitySet="Table_DetailOder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Movie_Table_StatusMovie" Association="Self.FK_Table_Movie_Table_StatusMovie">
+            <End Role="Table_StatusMovie" EntitySet="Table_StatusMovie" />
+            <End Role="Table_Movie" EntitySet="Table_Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Screen_Table_Movie" Association="Self.FK_Table_Screen_Table_Movie">
+            <End Role="Table_Movie" EntitySet="Table_Movie" />
+            <End Role="Table_Screen" EntitySet="Table_Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Order_Table_StatusBay" Association="Self.FK_Table_Order_Table_StatusBay">
+            <End Role="Table_StatusBay" EntitySet="Table_StatusBay" />
+            <End Role="Table_Order" EntitySet="Table_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Order_Table_User" Association="Self.FK_Table_Order_Table_User">
+            <End Role="Table_User" EntitySet="Table_User" />
+            <End Role="Table_Order" EntitySet="Table_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_User_Table_Type" Association="Self.FK_Table_User_Table_Type">
+            <End Role="Table_Type" EntitySet="Table_Type" />
+            <End Role="Table_User" EntitySet="Table_User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Cinema5927ModelStoreContainer" CdmEntityContainer="Cinema5927Entities">
+          <EntitySetMapping Name="Table_Chair">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_Chair">
+              <MappingFragment StoreEntitySet="Table_Chair">
+                <ScalarProperty Name="C_ChairID" ColumnName="C_ChairID" />
+                <ScalarProperty Name="C_NameChair" ColumnName="C_NameChair" />
+                <ScalarProperty Name="C_SatatusID" ColumnName="C_SatatusID" />
+                <ScalarProperty Name="C_ScreenID" ColumnName="C_ScreenID" />
+                <ScalarProperty Name="C_Price" ColumnName="C_Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Cinema">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_Cinema">
+              <MappingFragment StoreEntitySet="Table_Cinema">
+                <ScalarProperty Name="C_CinemaID" ColumnName="C_CinemaID" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="C_AmoutHire" ColumnName="C_AmoutHire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_DetailOder">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_DetailOder">
+              <MappingFragment StoreEntitySet="Table_DetailOder">
+                <ScalarProperty Name="D_DetailOderID" ColumnName="D_DetailOderID" />
+                <ScalarProperty Name="D_Order" ColumnName="D_Order" />
+                <ScalarProperty Name="D_hairID" ColumnName="D_hairID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Movie">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_Movie">
+              <MappingFragment StoreEntitySet="Table_Movie">
+                <ScalarProperty Name="M_MovieID" ColumnName="M_MovieID" />
+                <ScalarProperty Name="M_NameMovie" ColumnName="M_NameMovie" />
+                <ScalarProperty Name="M_DateInMovie" ColumnName="M_DateInMovie" />
+                <ScalarProperty Name="M_DateOutMovie" ColumnName="M_DateOutMovie" />
+                <ScalarProperty Name="M_PicMovie" ColumnName="M_PicMovie" />
+                <ScalarProperty Name="M_MovieStatus" ColumnName="M_MovieStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Order">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_Order">
+              <MappingFragment StoreEntitySet="Table_Order">
+                <ScalarProperty Name="O_OrderID" ColumnName="O_OrderID" />
+                <ScalarProperty Name="O_Email" ColumnName="O_Email" />
+                <ScalarProperty Name="O_DateOder" ColumnName="O_DateOder" />
+                <ScalarProperty Name="O_SatatusBay" ColumnName="O_SatatusBay" />
+                <ScalarProperty Name="O_Total" ColumnName="O_Total" />
+                <ScalarProperty Name="O_IMGPAY" ColumnName="O_IMGPAY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Screen">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_Screen">
+              <MappingFragment StoreEntitySet="Table_Screen">
+                <ScalarProperty Name="S_ScreenID" ColumnName="S_ScreenID" />
+                <ScalarProperty Name="S_MovieID" ColumnName="S_MovieID" />
+                <ScalarProperty Name="S_CinemaID" ColumnName="S_CinemaID" />
+                <ScalarProperty Name="S_DateSN" ColumnName="S_DateSN" />
+                <ScalarProperty Name="S_TimeSN" ColumnName="S_TimeSN" />
+                <ScalarProperty Name="S_StatusSN" ColumnName="S_StatusSN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_StatusBay">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_StatusBay">
+              <MappingFragment StoreEntitySet="Table_StatusBay">
+                <ScalarProperty Name="B_SatatusBayID" ColumnName="B_SatatusBayID" />
+                <ScalarProperty Name="B_Name" ColumnName="B_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_StatusChire">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_StatusChire">
+              <MappingFragment StoreEntitySet="Table_StatusChire">
+                <ScalarProperty Name="S_StatusChireID" ColumnName="S_StatusChireID" />
+                <ScalarProperty Name="S_NameSta" ColumnName="S_NameSta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_StatusMovie">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_StatusMovie">
+              <MappingFragment StoreEntitySet="Table_StatusMovie">
+                <ScalarProperty Name="S_StatusMovieID" ColumnName="S_StatusMovieID" />
+                <ScalarProperty Name="S_NameStatus" ColumnName="S_NameStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Type">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_Type">
+              <MappingFragment StoreEntitySet="Table_Type">
+                <ScalarProperty Name="T_TypeID" ColumnName="T_TypeID" />
+                <ScalarProperty Name="T_TypeName" ColumnName="T_TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_User">
+            <EntityTypeMapping TypeName="Cinema5927Model.Table_User">
+              <MappingFragment StoreEntitySet="Table_User">
+                <ScalarProperty Name="U_EmailID" ColumnName="U_EmailID" />
+                <ScalarProperty Name="U_Password" ColumnName="U_Password" />
+                <ScalarProperty Name="U_Name" ColumnName="U_Name" />
+                <ScalarProperty Name="U_LastName" ColumnName="U_LastName" />
+                <ScalarProperty Name="U_CardID" ColumnName="U_CardID" />
+                <ScalarProperty Name="U_Phone" ColumnName="U_Phone" />
+                <ScalarProperty Name="U_TypeID" ColumnName="U_TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_SumOder">
+            <EntityTypeMapping TypeName="Cinema5927Model.View_SumOder">
+              <MappingFragment StoreEntitySet="View_SumOder">
+                <ScalarProperty Name="O_OrderID" ColumnName="O_OrderID" />
+                <ScalarProperty Name="B_SatatusBayID" ColumnName="B_SatatusBayID" />
+                <ScalarProperty Name="B_Name" ColumnName="B_Name" />
+                <ScalarProperty Name="U_EmailID" ColumnName="U_EmailID" />
+                <ScalarProperty Name="U_Name" ColumnName="U_Name" />
+                <ScalarProperty Name="U_LastName" ColumnName="U_LastName" />
+                <ScalarProperty Name="O_Email" ColumnName="O_Email" />
+                <ScalarProperty Name="O_IMGPAY" ColumnName="O_IMGPAY" />
+                <ScalarProperty Name="O_Total" ColumnName="O_Total" />
+                <ScalarProperty Name="O_SatatusBay" ColumnName="O_SatatusBay" />
+                <ScalarProperty Name="O_DateOder" ColumnName="O_DateOder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewMovies">
+            <EntityTypeMapping TypeName="Cinema5927Model.ViewMovies">
+              <MappingFragment StoreEntitySet="ViewMovies">
+                <ScalarProperty Name="S_StatusMovieID" ColumnName="S_StatusMovieID" />
+                <ScalarProperty Name="S_NameStatus" ColumnName="S_NameStatus" />
+                <ScalarProperty Name="M_MovieID" ColumnName="M_MovieID" />
+                <ScalarProperty Name="M_NameMovie" ColumnName="M_NameMovie" />
+                <ScalarProperty Name="M_DateInMovie" ColumnName="M_DateInMovie" />
+                <ScalarProperty Name="M_DateOutMovie" ColumnName="M_DateOutMovie" />
+                <ScalarProperty Name="M_PicMovie" ColumnName="M_PicMovie" />
+                <ScalarProperty Name="M_MovieStatus" ColumnName="M_MovieStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewOders">
+            <EntityTypeMapping TypeName="Cinema5927Model.ViewOders">
+              <MappingFragment StoreEntitySet="ViewOders">
+                <ScalarProperty Name="O_OrderID" ColumnName="O_OrderID" />
+                <ScalarProperty Name="D_DetailOderID" ColumnName="D_DetailOderID" />
+                <ScalarProperty Name="D_Order" ColumnName="D_Order" />
+                <ScalarProperty Name="D_hairID" ColumnName="D_hairID" />
+                <ScalarProperty Name="O_Email" ColumnName="O_Email" />
+                <ScalarProperty Name="U_EmailID" ColumnName="U_EmailID" />
+                <ScalarProperty Name="U_Password" ColumnName="U_Password" />
+                <ScalarProperty Name="U_Name" ColumnName="U_Name" />
+                <ScalarProperty Name="U_LastName" ColumnName="U_LastName" />
+                <ScalarProperty Name="U_Phone" ColumnName="U_Phone" />
+                <ScalarProperty Name="O_SatatusBay" ColumnName="O_SatatusBay" />
+                <ScalarProperty Name="O_DateOder" ColumnName="O_DateOder" />
+                <ScalarProperty Name="O_Total" ColumnName="O_Total" />
+                <ScalarProperty Name="O_IMGPAY" ColumnName="O_IMGPAY" />
+                <ScalarProperty Name="C_ChairID" ColumnName="C_ChairID" />
+                <ScalarProperty Name="C_NameChair" ColumnName="C_NameChair" />
+                <ScalarProperty Name="S_ScreenID" ColumnName="S_ScreenID" />
+                <ScalarProperty Name="S_MovieID" ColumnName="S_MovieID" />
+                <ScalarProperty Name="S_CinemaID" ColumnName="S_CinemaID" />
+                <ScalarProperty Name="S_DateSN" ColumnName="S_DateSN" />
+                <ScalarProperty Name="S_TimeSN" ColumnName="S_TimeSN" />
+                <ScalarProperty Name="C_CinemaID" ColumnName="C_CinemaID" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="M_MovieID" ColumnName="M_MovieID" />
+                <ScalarProperty Name="M_NameMovie" ColumnName="M_NameMovie" />
+                <ScalarProperty Name="M_PicMovie" ColumnName="M_PicMovie" />
+                <ScalarProperty Name="B_SatatusBayID" ColumnName="B_SatatusBayID" />
+                <ScalarProperty Name="B_Name" ColumnName="B_Name" />
+                <ScalarProperty Name="C_ScreenID" ColumnName="C_ScreenID" />
+                <ScalarProperty Name="C_Price" ColumnName="C_Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

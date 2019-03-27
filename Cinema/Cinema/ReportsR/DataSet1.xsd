@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Cinema5927ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Cinema5927ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Cinema5927ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewMoviesTableAdapter" GeneratorDataComponentClassName="ViewMoviesTableAdapter" Name="ViewMovies" UserDataComponentName="ViewMoviesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Cinema5927ConnectionString (Web.config)" DbObjectName="Cinema5927.dbo.ViewMovies" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT S_StatusMovieID, S_NameStatus, M_MovieID, M_NameMovie, M_DateInMovie, M_DateOutMovie, M_PicMovie, M_MovieStatus FROM dbo.ViewMovies</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="S_StatusMovieID" DataSetColumn="S_StatusMovieID" />
+              <Mapping SourceColumn="S_NameStatus" DataSetColumn="S_NameStatus" />
+              <Mapping SourceColumn="M_MovieID" DataSetColumn="M_MovieID" />
+              <Mapping SourceColumn="M_NameMovie" DataSetColumn="M_NameMovie" />
+              <Mapping SourceColumn="M_DateInMovie" DataSetColumn="M_DateInMovie" />
+              <Mapping SourceColumn="M_DateOutMovie" DataSetColumn="M_DateOutMovie" />
+              <Mapping SourceColumn="M_PicMovie" DataSetColumn="M_PicMovie" />
+              <Mapping SourceColumn="M_MovieStatus" DataSetColumn="M_MovieStatus" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewOdersTableAdapter" GeneratorDataComponentClassName="ViewOdersTableAdapter" Name="ViewOders" UserDataComponentName="ViewOdersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Cinema5927ConnectionString (Web.config)" DbObjectName="Cinema5927.dbo.ViewOders" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT O_OrderID, D_DetailOderID, D_Order, D_hairID, O_Email, U_EmailID, U_Password, U_Name, U_LastName, U_Phone, O_SatatusBay, O_DateOder, O_Total, O_IMGPAY, C_ChairID, C_NameChair, S_ScreenID, S_MovieID, S_CinemaID, S_DateSN, S_TimeSN, C_CinemaID, C_Name, M_MovieID, M_NameMovie, M_PicMovie, B_SatatusBayID, B_Name, C_ScreenID, C_Price FROM dbo.ViewOders</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="O_OrderID" DataSetColumn="O_OrderID" />
+              <Mapping SourceColumn="D_DetailOderID" DataSetColumn="D_DetailOderID" />
+              <Mapping SourceColumn="D_Order" DataSetColumn="D_Order" />
+              <Mapping SourceColumn="D_hairID" DataSetColumn="D_hairID" />
+              <Mapping SourceColumn="O_Email" DataSetColumn="O_Email" />
+              <Mapping SourceColumn="U_EmailID" DataSetColumn="U_EmailID" />
+              <Mapping SourceColumn="U_Password" DataSetColumn="U_Password" />
+              <Mapping SourceColumn="U_Name" DataSetColumn="U_Name" />
+              <Mapping SourceColumn="U_LastName" DataSetColumn="U_LastName" />
+              <Mapping SourceColumn="U_Phone" DataSetColumn="U_Phone" />
+              <Mapping SourceColumn="O_SatatusBay" DataSetColumn="O_SatatusBay" />
+              <Mapping SourceColumn="O_DateOder" DataSetColumn="O_DateOder" />
+              <Mapping SourceColumn="O_Total" DataSetColumn="O_Total" />
+              <Mapping SourceColumn="O_IMGPAY" DataSetColumn="O_IMGPAY" />
+              <Mapping SourceColumn="C_ChairID" DataSetColumn="C_ChairID" />
+              <Mapping SourceColumn="C_NameChair" DataSetColumn="C_NameChair" />
+              <Mapping SourceColumn="S_ScreenID" DataSetColumn="S_ScreenID" />
+              <Mapping SourceColumn="S_MovieID" DataSetColumn="S_MovieID" />
+              <Mapping SourceColumn="S_CinemaID" DataSetColumn="S_CinemaID" />
+              <Mapping SourceColumn="S_DateSN" DataSetColumn="S_DateSN" />
+              <Mapping SourceColumn="S_TimeSN" DataSetColumn="S_TimeSN" />
+              <Mapping SourceColumn="C_CinemaID" DataSetColumn="C_CinemaID" />
+              <Mapping SourceColumn="C_Name" DataSetColumn="C_Name" />
+              <Mapping SourceColumn="M_MovieID" DataSetColumn="M_MovieID" />
+              <Mapping SourceColumn="M_NameMovie" DataSetColumn="M_NameMovie" />
+              <Mapping SourceColumn="M_PicMovie" DataSetColumn="M_PicMovie" />
+              <Mapping SourceColumn="B_SatatusBayID" DataSetColumn="B_SatatusBayID" />
+              <Mapping SourceColumn="B_Name" DataSetColumn="B_Name" />
+              <Mapping SourceColumn="C_ScreenID" DataSetColumn="C_ScreenID" />
+              <Mapping SourceColumn="C_Price" DataSetColumn="C_Price" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_SumOderTableAdapter" GeneratorDataComponentClassName="View_SumOderTableAdapter" Name="View_SumOder" UserDataComponentName="View_SumOderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Cinema5927ConnectionString (Web.config)" DbObjectName="Cinema5927.dbo.View_SumOder" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT O_OrderID, B_SatatusBayID, B_Name, U_EmailID, U_Name, U_LastName, O_Email, O_IMGPAY, O_Total, O_SatatusBay, O_DateOder FROM dbo.View_SumOder</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="O_OrderID" DataSetColumn="O_OrderID" />
+              <Mapping SourceColumn="B_SatatusBayID" DataSetColumn="B_SatatusBayID" />
+              <Mapping SourceColumn="B_Name" DataSetColumn="B_Name" />
+              <Mapping SourceColumn="U_EmailID" DataSetColumn="U_EmailID" />
+              <Mapping SourceColumn="U_Name" DataSetColumn="U_Name" />
+              <Mapping SourceColumn="U_LastName" DataSetColumn="U_LastName" />
+              <Mapping SourceColumn="O_Email" DataSetColumn="O_Email" />
+              <Mapping SourceColumn="O_IMGPAY" DataSetColumn="O_IMGPAY" />
+              <Mapping SourceColumn="O_Total" DataSetColumn="O_Total" />
+              <Mapping SourceColumn="O_SatatusBay" DataSetColumn="O_SatatusBay" />
+              <Mapping SourceColumn="O_DateOder" DataSetColumn="O_DateOder" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ViewMovies" msprop:Generator_TableClassName="ViewMoviesDataTable" msprop:Generator_TableVarName="tableViewMovies" msprop:Generator_RowChangedName="ViewMoviesRowChanged" msprop:Generator_TablePropName="ViewMovies" msprop:Generator_RowDeletingName="ViewMoviesRowDeleting" msprop:Generator_RowChangingName="ViewMoviesRowChanging" msprop:Generator_RowEvHandlerName="ViewMoviesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewMoviesRowDeleted" msprop:Generator_RowClassName="ViewMoviesRow" msprop:Generator_UserTableName="ViewMovies" msprop:Generator_RowEvArgName="ViewMoviesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="S_StatusMovieID" msprop:Generator_ColumnVarNameInTable="columnS_StatusMovieID" msprop:Generator_ColumnPropNameInRow="S_StatusMovieID" msprop:Generator_ColumnPropNameInTable="S_StatusMovieIDColumn" msprop:Generator_UserColumnName="S_StatusMovieID" type="xs:int" />
+              <xs:element name="S_NameStatus" msprop:Generator_ColumnVarNameInTable="columnS_NameStatus" msprop:Generator_ColumnPropNameInRow="S_NameStatus" msprop:Generator_ColumnPropNameInTable="S_NameStatusColumn" msprop:Generator_UserColumnName="S_NameStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="M_MovieID" msprop:Generator_ColumnVarNameInTable="columnM_MovieID" msprop:Generator_ColumnPropNameInRow="M_MovieID" msprop:Generator_ColumnPropNameInTable="M_MovieIDColumn" msprop:Generator_UserColumnName="M_MovieID" type="xs:int" />
+              <xs:element name="M_NameMovie" msprop:Generator_ColumnVarNameInTable="columnM_NameMovie" msprop:Generator_ColumnPropNameInRow="M_NameMovie" msprop:Generator_ColumnPropNameInTable="M_NameMovieColumn" msprop:Generator_UserColumnName="M_NameMovie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="M_DateInMovie" msprop:Generator_ColumnVarNameInTable="columnM_DateInMovie" msprop:Generator_ColumnPropNameInRow="M_DateInMovie" msprop:Generator_ColumnPropNameInTable="M_DateInMovieColumn" msprop:Generator_UserColumnName="M_DateInMovie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="M_DateOutMovie" msprop:Generator_ColumnVarNameInTable="columnM_DateOutMovie" msprop:Generator_ColumnPropNameInRow="M_DateOutMovie" msprop:Generator_ColumnPropNameInTable="M_DateOutMovieColumn" msprop:Generator_UserColumnName="M_DateOutMovie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="M_PicMovie" msprop:Generator_ColumnVarNameInTable="columnM_PicMovie" msprop:Generator_ColumnPropNameInRow="M_PicMovie" msprop:Generator_ColumnPropNameInTable="M_PicMovieColumn" msprop:Generator_UserColumnName="M_PicMovie" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="M_MovieStatus" msprop:Generator_ColumnVarNameInTable="columnM_MovieStatus" msprop:Generator_ColumnPropNameInRow="M_MovieStatus" msprop:Generator_ColumnPropNameInTable="M_MovieStatusColumn" msprop:Generator_UserColumnName="M_MovieStatus" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewOders" msprop:Generator_TableClassName="ViewOdersDataTable" msprop:Generator_TableVarName="tableViewOders" msprop:Generator_RowChangedName="ViewOdersRowChanged" msprop:Generator_TablePropName="ViewOders" msprop:Generator_RowDeletingName="ViewOdersRowDeleting" msprop:Generator_RowChangingName="ViewOdersRowChanging" msprop:Generator_RowEvHandlerName="ViewOdersRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewOdersRowDeleted" msprop:Generator_RowClassName="ViewOdersRow" msprop:Generator_UserTableName="ViewOders" msprop:Generator_RowEvArgName="ViewOdersRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="O_OrderID" msprop:Generator_ColumnVarNameInTable="columnO_OrderID" msprop:Generator_ColumnPropNameInRow="O_OrderID" msprop:Generator_ColumnPropNameInTable="O_OrderIDColumn" msprop:Generator_UserColumnName="O_OrderID" type="xs:int" />
+              <xs:element name="D_DetailOderID" msprop:Generator_ColumnVarNameInTable="columnD_DetailOderID" msprop:Generator_ColumnPropNameInRow="D_DetailOderID" msprop:Generator_ColumnPropNameInTable="D_DetailOderIDColumn" msprop:Generator_UserColumnName="D_DetailOderID" type="xs:int" />
+              <xs:element name="D_Order" msprop:Generator_ColumnVarNameInTable="columnD_Order" msprop:Generator_ColumnPropNameInRow="D_Order" msprop:Generator_ColumnPropNameInTable="D_OrderColumn" msprop:Generator_UserColumnName="D_Order" type="xs:int" minOccurs="0" />
+              <xs:element name="D_hairID" msprop:Generator_ColumnVarNameInTable="columnD_hairID" msprop:Generator_ColumnPropNameInRow="D_hairID" msprop:Generator_ColumnPropNameInTable="D_hairIDColumn" msprop:Generator_UserColumnName="D_hairID" type="xs:int" minOccurs="0" />
+              <xs:element name="O_Email" msprop:Generator_ColumnVarNameInTable="columnO_Email" msprop:Generator_ColumnPropNameInRow="O_Email" msprop:Generator_ColumnPropNameInTable="O_EmailColumn" msprop:Generator_UserColumnName="O_Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="U_EmailID" msprop:Generator_ColumnVarNameInTable="columnU_EmailID" msprop:Generator_ColumnPropNameInRow="U_EmailID" msprop:Generator_ColumnPropNameInTable="U_EmailIDColumn" msprop:Generator_UserColumnName="U_EmailID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="U_Password" msprop:Generator_ColumnVarNameInTable="columnU_Password" msprop:Generator_ColumnPropNameInRow="U_Password" msprop:Generator_ColumnPropNameInTable="U_PasswordColumn" msprop:Generator_UserColumnName="U_Password" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="U_Name" msprop:Generator_ColumnVarNameInTable="columnU_Name" msprop:Generator_ColumnPropNameInRow="U_Name" msprop:Generator_ColumnPropNameInTable="U_NameColumn" msprop:Generator_UserColumnName="U_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="U_LastName" msprop:Generator_ColumnVarNameInTable="columnU_LastName" msprop:Generator_ColumnPropNameInRow="U_LastName" msprop:Generator_ColumnPropNameInTable="U_LastNameColumn" msprop:Generator_UserColumnName="U_LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="U_Phone" msprop:Generator_ColumnVarNameInTable="columnU_Phone" msprop:Generator_ColumnPropNameInRow="U_Phone" msprop:Generator_ColumnPropNameInTable="U_PhoneColumn" msprop:Generator_UserColumnName="U_Phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="O_SatatusBay" msprop:Generator_ColumnVarNameInTable="columnO_SatatusBay" msprop:Generator_ColumnPropNameInRow="O_SatatusBay" msprop:Generator_ColumnPropNameInTable="O_SatatusBayColumn" msprop:Generator_UserColumnName="O_SatatusBay" type="xs:int" minOccurs="0" />
+              <xs:element name="O_DateOder" msprop:Generator_ColumnVarNameInTable="columnO_DateOder" msprop:Generator_ColumnPropNameInRow="O_DateOder" msprop:Generator_ColumnPropNameInTable="O_DateOderColumn" msprop:Generator_UserColumnName="O_DateOder" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="O_Total" msprop:Generator_ColumnVarNameInTable="columnO_Total" msprop:Generator_ColumnPropNameInRow="O_Total" msprop:Generator_ColumnPropNameInTable="O_TotalColumn" msprop:Generator_UserColumnName="O_Total" type="xs:int" minOccurs="0" />
+              <xs:element name="O_IMGPAY" msprop:Generator_ColumnVarNameInTable="columnO_IMGPAY" msprop:Generator_ColumnPropNameInRow="O_IMGPAY" msprop:Generator_ColumnPropNameInTable="O_IMGPAYColumn" msprop:Generator_UserColumnName="O_IMGPAY" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="C_ChairID" msprop:Generator_ColumnVarNameInTable="columnC_ChairID" msprop:Generator_ColumnPropNameInRow="C_ChairID" msprop:Generator_ColumnPropNameInTable="C_ChairIDColumn" msprop:Generator_UserColumnName="C_ChairID" type="xs:int" />
+              <xs:element name="C_NameChair" msprop:Generator_ColumnVarNameInTable="columnC_NameChair" msprop:Generator_ColumnPropNameInRow="C_NameChair" msprop:Generator_ColumnPropNameInTable="C_NameChairColumn" msprop:Generator_UserColumnName="C_NameChair" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="S_ScreenID" msprop:Generator_ColumnVarNameInTable="columnS_ScreenID" msprop:Generator_ColumnPropNameInRow="S_ScreenID" msprop:Generator_ColumnPropNameInTable="S_ScreenIDColumn" msprop:Generator_UserColumnName="S_ScreenID" type="xs:int" />
+              <xs:element name="S_MovieID" msprop:Generator_ColumnVarNameInTable="columnS_MovieID" msprop:Generator_ColumnPropNameInRow="S_MovieID" msprop:Generator_ColumnPropNameInTable="S_MovieIDColumn" msprop:Generator_UserColumnName="S_MovieID" type="xs:int" minOccurs="0" />
+              <xs:element name="S_CinemaID" msprop:Generator_ColumnVarNameInTable="columnS_CinemaID" msprop:Generator_ColumnPropNameInRow="S_CinemaID" msprop:Generator_ColumnPropNameInTable="S_CinemaIDColumn" msprop:Generator_UserColumnName="S_CinemaID" type="xs:int" minOccurs="0" />
+              <xs:element name="S_DateSN" msprop:Generator_ColumnVarNameInTable="columnS_DateSN" msprop:Generator_ColumnPropNameInRow="S_DateSN" msprop:Generator_ColumnPropNameInTable="S_DateSNColumn" msprop:Generator_UserColumnName="S_DateSN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="S_TimeSN" msprop:Generator_ColumnVarNameInTable="columnS_TimeSN" msprop:Generator_ColumnPropNameInRow="S_TimeSN" msprop:Generator_ColumnPropNameInTable="S_TimeSNColumn" msprop:Generator_UserColumnName="S_TimeSN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="C_CinemaID" msprop:Generator_ColumnVarNameInTable="columnC_CinemaID" msprop:Generator_ColumnPropNameInRow="C_CinemaID" msprop:Generator_ColumnPropNameInTable="C_CinemaIDColumn" msprop:Generator_UserColumnName="C_CinemaID" type="xs:int" />
+              <xs:element name="C_Name" msprop:Generator_ColumnVarNameInTable="columnC_Name" msprop:Generator_ColumnPropNameInRow="C_Name" msprop:Generator_ColumnPropNameInTable="C_NameColumn" msprop:Generator_UserColumnName="C_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="M_MovieID" msprop:Generator_ColumnVarNameInTable="columnM_MovieID" msprop:Generator_ColumnPropNameInRow="M_MovieID" msprop:Generator_ColumnPropNameInTable="M_MovieIDColumn" msprop:Generator_UserColumnName="M_MovieID" type="xs:int" />
+              <xs:element name="M_NameMovie" msprop:Generator_ColumnVarNameInTable="columnM_NameMovie" msprop:Generator_ColumnPropNameInRow="M_NameMovie" msprop:Generator_ColumnPropNameInTable="M_NameMovieColumn" msprop:Generator_UserColumnName="M_NameMovie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="M_PicMovie" msprop:Generator_ColumnVarNameInTable="columnM_PicMovie" msprop:Generator_ColumnPropNameInRow="M_PicMovie" msprop:Generator_ColumnPropNameInTable="M_PicMovieColumn" msprop:Generator_UserColumnName="M_PicMovie" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="B_SatatusBayID" msprop:Generator_ColumnVarNameInTable="columnB_SatatusBayID" msprop:Generator_ColumnPropNameInRow="B_SatatusBayID" msprop:Generator_ColumnPropNameInTable="B_SatatusBayIDColumn" msprop:Generator_UserColumnName="B_SatatusBayID" type="xs:int" />
+              <xs:element name="B_Name" msprop:Generator_ColumnVarNameInTable="columnB_Name" msprop:Generator_ColumnPropNameInRow="B_Name" msprop:Generator_ColumnPropNameInTable="B_NameColumn" msprop:Generator_UserColumnName="B_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="C_ScreenID" msprop:Generator_ColumnVarNameInTable="columnC_ScreenID" msprop:Generator_ColumnPropNameInRow="C_ScreenID" msprop:Generator_ColumnPropNameInTable="C_ScreenIDColumn" msprop:Generator_UserColumnName="C_ScreenID" type="xs:int" minOccurs="0" />
+              <xs:element name="C_Price" msprop:Generator_ColumnVarNameInTable="columnC_Price" msprop:Generator_ColumnPropNameInRow="C_Price" msprop:Generator_ColumnPropNameInTable="C_PriceColumn" msprop:Generator_UserColumnName="C_Price" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="View_SumOder" msprop:Generator_TableClassName="View_SumOderDataTable" msprop:Generator_TableVarName="tableView_SumOder" msprop:Generator_TablePropName="View_SumOder" msprop:Generator_RowDeletingName="View_SumOderRowDeleting" msprop:Generator_RowChangingName="View_SumOderRowChanging" msprop:Generator_RowEvHandlerName="View_SumOderRowChangeEventHandler" msprop:Generator_RowDeletedName="View_SumOderRowDeleted" msprop:Generator_UserTableName="View_SumOder" msprop:Generator_RowChangedName="View_SumOderRowChanged" msprop:Generator_RowEvArgName="View_SumOderRowChangeEvent" msprop:Generator_RowClassName="View_SumOderRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="O_OrderID" msprop:Generator_ColumnVarNameInTable="columnO_OrderID" msprop:Generator_ColumnPropNameInRow="O_OrderID" msprop:Generator_ColumnPropNameInTable="O_OrderIDColumn" msprop:Generator_UserColumnName="O_OrderID" type="xs:int" />
+              <xs:element name="B_SatatusBayID" msprop:Generator_ColumnVarNameInTable="columnB_SatatusBayID" msprop:Generator_ColumnPropNameInRow="B_SatatusBayID" msprop:Generator_ColumnPropNameInTable="B_SatatusBayIDColumn" msprop:Generator_UserColumnName="B_SatatusBayID" type="xs:int" />
+              <xs:element name="B_Name" msprop:Generator_ColumnVarNameInTable="columnB_Name" msprop:Generator_ColumnPropNameInRow="B_Name" msprop:Generator_ColumnPropNameInTable="B_NameColumn" msprop:Generator_UserColumnName="B_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="U_EmailID" msprop:Generator_ColumnVarNameInTable="columnU_EmailID" msprop:Generator_ColumnPropNameInRow="U_EmailID" msprop:Generator_ColumnPropNameInTable="U_EmailIDColumn" msprop:Generator_UserColumnName="U_EmailID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="U_Name" msprop:Generator_ColumnVarNameInTable="columnU_Name" msprop:Generator_ColumnPropNameInRow="U_Name" msprop:Generator_ColumnPropNameInTable="U_NameColumn" msprop:Generator_UserColumnName="U_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="U_LastName" msprop:Generator_ColumnVarNameInTable="columnU_LastName" msprop:Generator_ColumnPropNameInRow="U_LastName" msprop:Generator_ColumnPropNameInTable="U_LastNameColumn" msprop:Generator_UserColumnName="U_LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="O_Email" msprop:Generator_ColumnVarNameInTable="columnO_Email" msprop:Generator_ColumnPropNameInRow="O_Email" msprop:Generator_ColumnPropNameInTable="O_EmailColumn" msprop:Generator_UserColumnName="O_Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="O_IMGPAY" msprop:Generator_ColumnVarNameInTable="columnO_IMGPAY" msprop:Generator_ColumnPropNameInRow="O_IMGPAY" msprop:Generator_ColumnPropNameInTable="O_IMGPAYColumn" msprop:Generator_UserColumnName="O_IMGPAY" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="O_Total" msprop:Generator_ColumnVarNameInTable="columnO_Total" msprop:Generator_ColumnPropNameInRow="O_Total" msprop:Generator_ColumnPropNameInTable="O_TotalColumn" msprop:Generator_UserColumnName="O_Total" type="xs:int" minOccurs="0" />
+              <xs:element name="O_SatatusBay" msprop:Generator_ColumnVarNameInTable="columnO_SatatusBay" msprop:Generator_ColumnPropNameInRow="O_SatatusBay" msprop:Generator_ColumnPropNameInTable="O_SatatusBayColumn" msprop:Generator_UserColumnName="O_SatatusBay" type="xs:int" minOccurs="0" />
+              <xs:element name="O_DateOder" msprop:Generator_ColumnVarNameInTable="columnO_DateOder" msprop:Generator_ColumnPropNameInRow="O_DateOder" msprop:Generator_ColumnPropNameInTable="O_DateOderColumn" msprop:Generator_UserColumnName="O_DateOder" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewMovies" />
+      <xs:field xpath="mstns:S_StatusMovieID" />
+      <xs:field xpath="mstns:M_MovieID" />
+    </xs:unique>
+    <xs:unique name="ViewOders_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewOders" />
+      <xs:field xpath="mstns:O_OrderID" />
+      <xs:field xpath="mstns:D_DetailOderID" />
+      <xs:field xpath="mstns:U_EmailID" />
+      <xs:field xpath="mstns:C_ChairID" />
+      <xs:field xpath="mstns:S_ScreenID" />
+      <xs:field xpath="mstns:C_CinemaID" />
+      <xs:field xpath="mstns:M_MovieID" />
+      <xs:field xpath="mstns:B_SatatusBayID" />
+    </xs:unique>
+    <xs:unique name="View_SumOder_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_SumOder" />
+      <xs:field xpath="mstns:O_OrderID" />
+      <xs:field xpath="mstns:B_SatatusBayID" />
+      <xs:field xpath="mstns:U_EmailID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
